@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 1</title>
+</head>
+<body>
+    <h1>Favoritt Høstedag</h1>
+    <form id="form">
+        <label for="navn">Navn:</label> <br>
+        <input type="text" id="navn" required><br>
+        <label for="dato">Favorittdato i høst:</label><br>
+        <input type="date" id="dato" required><br><br>
+        <button type="submit">Send inn</button>
+      </form>
+      <p id="svar"></p>
+      
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          event.preventDefault();
+          let navn = document.getElementById("navn").value;
+          let dato = document.getElementById("dato").value;
+          document.getElementById("svar").textContent = `Hei ${navn}! Din favoritthøstdag er ${dato}.`;
+        });
+      </script>
+</body>
+</html>
