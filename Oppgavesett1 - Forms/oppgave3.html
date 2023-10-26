@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3</title>
+</head>
+<body>
+    <h1>Høstværet</h1>
+    <form id="form">
+        <label for="temperatur">Temperatur (grader):</label><br>
+        <input type="number" id="temperatur" required><br>
+        <label for="sted">Sted:</label><br>
+        <input type="text" id="sted" required><br>
+        <label for="regn">Regner det?</label>
+        <input type="checkbox" id="regn"><br><br>
+        <button type="submit">Send inn</button>
+      </form>
+      <p id="svar"></p>
+      
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          event.preventDefault();
+          const temperatur = document.getElementById("temperatur").value;
+          const sted = document.getElementById("sted").value;
+          const regn = document.getElementById("regn").checked ? "regn" : "ikke regn";
+          document.getElementById("svar").textContent = `I ${sted} er temperaturen ${temperatur} grader, og det er ${regn}.`;
+        });
+      </script>
+      
+    
+</body>
+</html>
