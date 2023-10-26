@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 6</title>
+</head>
+<body>
+    <h1>Høst Festival</h1>
+    <form id="form">
+        <label for="festivalnavn">Festivalnavn:</label><br>
+        <input type="text" id="festivalnavn" required><br>
+        <label for="festiveldato">Festivaldato:</label><br>
+        <input type="date" id="festiveldato" required><br>
+        <label for="starttid">Starttid:</label><br>
+        <input type="time" id="starttid" required><br>
+        <label for="slutttid">Slutttid:</label><br>
+        <input type="time" id="slutttid" required><br>
+        <label for="informasjon">Ytterligere informasjon:</label><br>
+        <textarea id="informasjon"></textarea><br><br>
+        <button type="submit">Send inn</button>
+      </form>
+      <p id="svar"></p>
+      
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          event.preventDefault();
+          let festivalnavn = document.getElementById("festivalnavn").value;
+          let festiveldato = document.getElementById("festiveldato").value;
+          let starttid = document.getElementById("starttid").value;
+          let slutttid = document.getElementById("slutttid").value;
+          let informasjon = document.getElementById("informasjon").value;
+      
+          let festivalplan = `Festivalnavn: ${festivalnavn}
+          Dato: ${festiveldato}
+          Starttid: ${starttid}
+          Slutttid: ${slutttid}
+          Informasjon: ${informasjon}`;
+          document.getElementById("svar").textContent = festivalplan;
+        });
+      </script>
+      
+    
+</body>
+</html>
