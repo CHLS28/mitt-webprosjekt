@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 2</title>
+</head>
+<body>
+    <h1>Høstaktiviteter</h1>
+    <form id="form">
+        <label for="aktivitetsnavn">Aktivitetsnavn:</label><br>
+        <input type="text" id="aktivitetsnavn" required><br>
+        <label for="aktivitetstype">Type aktivitet:</label><br>
+        <select id="aktivitetstype">
+          <option value="Hiking">Hiking</option>
+          <option value="Picking Berries">Picking Berries</option>
+          <option value="Fishing">Fishing</option>
+        </select><br><br>
+        <button type="submit">Send inn</button>
+      </form>
+      <p id="svar"></p>
+      
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          event.preventDefault();
+          let aktivitetsnavn = document.getElementById("aktivitetsnavn").value;
+          let aktivitetstype = document.getElementById("aktivitetstype").value;
+          document.getElementById("svar").textContent = `${aktivitetsnavn} er en flott høstaktivitet for deg som liker ${aktivitetstype}.`;
+        });
+      </script>
+      
+    
+</body>
+</html>
