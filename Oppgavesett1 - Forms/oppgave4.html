@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 4</title>
+</head>
+<body>
+    <h1>Høstmat</h1>
+    <form id="form">
+        <label for="navn">Navn:</label><br>
+        <input type="text" id="navn" required><br>
+        <label for="epost">E-postadresse:</label><br>
+        <input type="email" id="epost" required><br>
+        <p>Velg din favoritthøstmat:</p>
+        <label for="pumpkin">Pumpkin Pie</label>
+        <input type="radio" id="pumpkin" name="favoritthostmat" value="Pumpkin Pie" required><br>
+        <label for="cider">Apple Cider</label>
+        <input type="radio" id="cider" name="favoritthostmat" value="Apple Cider" required><br><br>
+        <button type="submit">Send inn</button>
+      </form>
+      <p id="svar"></p>
+      
+      <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+          event.preventDefault();
+          const navn = document.getElementById("navn").value;
+          const epost = document.getElementById("epost").value;
+          const valgtMat = document.querySelector('input[name="favoritthostmat"]:checked').value;
+          document.getElementById("svar").textContent = `Takk, ${navn}! En e-postbekreftelse er sendt til ${epost} for ditt valg av ${valgtMat}.`;
+        });
+      </script>
+      
+    
+</body>
+</html>
