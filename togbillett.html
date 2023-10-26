@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestilling av Togbillett</title>
+    <link rel="stylesheet" href="togbillett.css">
+</head>
+<body>
+    <h1>Bestilling av Togbillett</h1>
+
+    <form id="billettForm">
+        <label>Velg bilett</label> <br>
+        <input type="radio" name="passasjertype" value="voksen"> Voksen (250 kr)<br>
+        <input type="radio" name="passasjertype" value="barn"> Barn (130 kr)<br>
+        <input type="radio" name="passasjertype" value="pensjonist"> Pensjonist (105 kr)<br>
+        Antall: <input type="number" name="antall"><br>
+        Destinasjon: <input type="text" name="destinasjon"><br>
+        <input type="submit" value="Beregn pris">
+    </form>
+
+
+<script src="togbillett.js"></script>
+
+</body>
+</html>
