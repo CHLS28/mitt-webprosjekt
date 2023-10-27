@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Høstbilder</title>
+</head>
+<body>
+    <h1>Oppgave 5: Høstbilder</h1>
+    <form id="imageForm">
+        <input type="file" id="imageInput" accept="image/*" onchange="previewImage()">
+        <br>
+        <label for="titleInput">Bildetittel:</label><br>
+        <input type="text" id="titleInput">
+        <br>
+        <label for="descriptionTextarea">Beskrivelse:</label><br>
+        <textarea id="descriptionTextarea"></textarea>
+        <br>
+        <div id="imagePreview"></div>
+    </form>
+
+    <script>
+        function previewImage() {
+            let imageInput = document.getElementById('imageInput');
+            let titleInput = document.getElementById('titleInput');
+            let descriptionTextarea = document.getElementById('descriptionTextarea');
+            let imagePreview = document.getElementById('imagePreview');
+
+            
+            if (imageInput.files.length > 0) {
+                let file = imageInput.files[0];
+                let reader = new FileReader();
+
+                reader.onload = function(e) {
+                    
+                    let img = document.createElement('img');
+                    img.src = e.target.result;
+
+                    
+                    let title = document.createElement('h2');
+                    title.textContent = titleInput.value;
+
+                    let description = document.createElement('p');
+                    description.textContent = descriptionTextarea.value;
+
+                    
+                    while (imagePreview.firstChild) {
+                        imagePreview.removeChild(imagePreview.firstChild);
+                    }
+
+                    
+                    imagePreview.appendChild(img);
+                    imagePreview.appendChild(title);
+                    imagePreview.appendChild(description);
+                };
+
+                
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
