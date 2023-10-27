@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Velkommen til Annes Aktivitetspark</h1>
+
+    <form id="formPaamelding">
+        <label>Navn</label><br>
+        <input type="text" required><br><br>
+        <label>Mobil</label><br>
+        <input type="tel" required maxlength="8" minlength="8"><br><br>
+        <label>Kjønn</label><br>
+        <input type="radio" name="kjonn" value="mann" required>Mann
+        <input type="radio" name="kjonn" value="kvinne">Kvinne<br><br>
+        <label>Alder</label><br>    
+        <input type="number"><br><br>
+        <label> Aktivitet</label><br>
+        <select required>
+            <option value="">Velg aktivitet...</option>
+            <option>Klatrepark</option>
+            <option>Ridning</option>
+            <option>Svømming</option>
+            <option>Paragliding</option>
+        </select><br><br>
+        <input type="submit"> <input type="reset">
+    </form>
+    
+</body>
+
+<script>
+    function regAktivitet(e){
+        e.preventDefault();
+        let tlf = document.querySelector('#formPaamelding input[type="tel"]').value;
+        prompt(`Stemmer telefonnummeret? ${tlf}`);
+    }
+
+    formPaamelding.addEventListener("submit", regAktivitet);
+
+</script>
+</html>
