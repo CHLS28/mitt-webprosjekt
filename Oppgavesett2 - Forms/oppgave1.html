@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oppgave 1</title>
+</head>
+<body>
+    <h1>Enkel Tekstinnføring</h1>
+    <form>
+        <label for="nameInput">Navn:</label>
+        <input type="text" id="nameInput">
+        <input type="button" value="Send inn" onclick="showName()">
+    </form>
+    <p id="output"></p>
+
+    <script>
+        function showName() {
+            let name = document.getElementById("nameInput").value;
+            document.getElementById("output").textContent = "Ditt navn er: " + name;
+        }
+    </script>
+</body>
+</html>
