@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oppgave 4</title>
+</head>
+<body>
+    <h1>Dynamisk Skjema</h1>
+    <form>
+        <label for="categorySelect">Velg kategori:</label>
+        <select id="categorySelect" onchange="showFields()">
+            <option value="Dyr">Dyr</option>
+            <option value="Planeter">Planeter</option>
+            <option value="Bøker">Bøker</option>
+        </select>
+        <div id="additionalFields" style="display: none;"></div>
+        <input type="button" value="Send inn" onclick="displaySelectedFields()">
+    </form>
+    <p id="selectedFields"></p>
+
+    <script>
+        function showFields() {
+            let category = document.getElementById("categorySelect").value;
+            let additionalFields = document.getElementById("additionalFields");
+
+            if (category === "Dyr") {
+                additionalFields.innerHTML = `
+                    <label for="animalSelect">Velg dyr:</label>
+                    <select id="animalSelect">
+                        <option value="Katt">Katt</option>
+                        <option value="Hund">Hund</option>
+                        <option value="Fisk">Fisk</option>
+                    </select>`;
+            } else if (category === "Planeter") {
+                additionalFields.innerHTML = `
+                    <label for="planetSelect">Velg planet:</label>
+                    <select id="planetSelect">
+                        <option value="Jorden">Jorden</option>
+                        <option value="Mars">Mars</option>
+                        <option value="Venus">Venus</option>
+                    </select>`;
+            } else if (category === "Bøker") {
+                additionalFields.innerHTML = `
+                    <label for="bookInput">Skriv boktittel:</label>
+                    <input type="text" id="bookInput">`;
+            }
+
+            additionalFields.style.display = "block";
+        }
+
+        function displaySelectedFields() {
+            let category = document.getElementById("categorySelect").value;
+            let selectedFields = document.getElementById("selectedFields");
+
+            if (category === "Dyr") {
+                selectedFields.textContent = "Du valgte dyr: " + document.getElementById("animalSelect").value;
+            } else if (category === "Planeter") {
+                selectedFields.textContent = "Du valgte planet: " + document.getElementById("planetSelect").value;
+            } else if (category === "Bøker") {
+                selectedFields.textContent = "Du skrev boktittelen: " + document.getElementById("bookInput").value;
+            }
+        }
+    </script>
+</body>
+</html>
