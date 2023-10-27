@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oppgave 3</title>
+</head>
+<body>
+    <h1>Avkryssningsbokser for Interesser</h1>
+    <form>
+        <label>Velg dine interesser:</label>
+        <input type="checkbox" id="musicCheckbox" value="Musikk">Musikk
+        <input type="checkbox" id="sportsCheckbox" value="Sport">Sport
+        <input type="checkbox" id="codingCheckbox" value="Koding">Koding
+        <br>
+        <input type="button" value="Send inn" onclick="showInterests()">
+    </form>
+    <p id="output"></p>
+
+    <script>
+        function showInterests() {
+            let interests = [];
+            if (document.getElementById("musicCheckbox").checked) {
+                interests.push(document.getElementById("musicCheckbox").value);
+            }
+            if (document.getElementById("sportsCheckbox").checked) {
+                interests.push(document.getElementById("sportsCheckbox").value);
+            }
+            if (document.getElementById("codingCheckbox").checked) {
+                interests.push(document.getElementById("codingCheckbox").value);
+            }
+            document.getElementById("output").textContent = "Dine valgte interesser: " + interests.join(", ");
+        }
+    </script>
+</body>
+</html>
