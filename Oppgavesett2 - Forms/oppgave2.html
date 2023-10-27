@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oppgave 2</title>
+</head>
+<body>
+    <h1>Velg Din Favorittfarge</h1>
+    <form>
+        <label for="colorSelect">Velg favorittfarge:</label>
+        <select id="colorSelect">
+            <option value="red">Rød</option>
+            <option value="green">Grønn</option>
+            <option value="blue">Blå</option>
+        </select>
+        <input type="button" value="Send inn" onclick="changeBackgroundColor()">
+    </form>
+
+    <script>
+        function changeBackgroundColor() {
+            let selectedColor = document.getElementById("colorSelect").value;
+            document.body.style.backgroundColor = selectedColor;
+        }
+    </script>
+</body>
+</html>
