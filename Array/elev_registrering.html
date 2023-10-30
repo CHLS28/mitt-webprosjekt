@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elev-registrering med array</title>
+</head>
+<body>
+    <h1>Elev-registrering</h1>
+    <label for="inpNavn">Skriv inn navn:</label>
+    <input id="inpNavn">
+    <button onclick="leggTilElev()">Legg til elev</button>
+    <button onclick="visAlleElever()">Vis alle elever</button>
+    <button onclick="slettSisteElev()">Slett siste elev</button>
+    <button onclick="sokElev()">Søk etter elev</button>
+<p id="txtUt"></p>
+    <script>
+
+        function leggTilElev(){
+            let navn = document.getElementById("inpNavn").value;
+            elever.push(navn);
+        
+        }
+        function visAlleElever(){
+            let txt = `<h4>Elev-oversikt</h4> <hr>`;
+            for (let i=0; i<elever.length; i++){
+                txt += `${elever[i]}<br>`;
+            }
+            
+            txtUt.innerHTML = txt;
+        }
+        function slettSisteElev(){
+            elever.pop();
+            visAlleElever();
+        }
+        function sokElev(){
+            let navn = document.getElementById("inpNavn").value;
+            let index = elever.indexOf(navn);
+            if (index !== -1) {
+                txtUt.innerHTML = `${navn} er elev nummer ${index + 1} i listen.`;
+            } else {
+                txtUt.innerHTML = `${navn} ble ikke funnet i listen.`;
+            }
+        }
+
+        let elever = ["per", "arne", "sara"];
+    </script>
+</body>
+</html>
