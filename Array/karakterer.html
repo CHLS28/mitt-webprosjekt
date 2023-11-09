@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karakterer</title>
+    <style>
+        body{
+            margin-left: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mine karakterer</h1>
+    <button onclick="visOversikt()">Vis oversikt</button>
+    <button onclick="giKarakterPoeng()">Vis karakterpoeng</button>
+    <button onclick="giSnitt()">Vis gjennomsnittskarakter</button>
+    <button onclick="hoyesteKar()">Vis høyeste karakter</button>
+    <button onclick="harBestatt()">Har jeg bestått opplæringen?</button>
+    <p id="txtUt"></p>
+
+    <script>
+        let karakterer = [3, 5, 4, 2, 6, 1, 3, 1];
+
+        function giSnitt(){
+            let summ = 0;
+            for(let i=0; i<karakterer.length; i++){
+                summ += karakterer[i];
+            }
+            let gjennomsnitt = summ / karakterer.length;
+            txtUt.textContent = `Gjennomsnitts karakter: ${gjennomsnitt.toFixed(2)}`;
+        }
+
+        function hoyesteKar(){
+            //let hoyeste = Math.max(...karakterer); 
+            let hoyest = karakter[0];
+            for(let i=1; i<karakterer.length; i++){
+                if (karakterer[i] > hoyest){
+                    hoyest = karakter[i];
+                }
+            }
+            txtUt.textContent = `Høyeste karakter: ${hoyeste}`;
+        }
+
+        function harBestatt(){
+            //let elevHarBestatt = karakterer.includes(1);
+            let elevHarBestatt = true;
+            for(let i=0; i<karakterer.length; i++){
+                if (karakterer[i] == 1){
+                    elevHarBestatt = false;
+                }
+            }
+            if (elevHarBestatt){
+                txtUt.textContent = "Bestått"
+            }
+            else{
+                txtUt.textContent = "Ikke bestått"
+            }
+            //txtUt.textContent = harEtt ? "Du har ikke bestått opplæringen" : "Gratulerer! Du har bestått opplæringen";
+        }
+
+        function giKarakterPoeng(){
+            let summ = 0;
+            for(let i=0; i<karakterer.length; i++){
+                summ += karakterer[i];
+            }
+            txtUt.textContent = `Karakterpoeng: ${summ}`;
+        }
+
+        function visOversikt(){
+            let tekst = "<h3>Mine karakterer</h3><hr>";
+            for(let i=0; i<karakterer.length; i++){
+                tekst += karakterer[i] + "<br>";
+            }
+            txtUt.innerHTML = tekst;
+        }
+    </script>
+</body>
+</html>
