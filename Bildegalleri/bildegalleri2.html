@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildegalleri</title>
+</head>
+<body>
+    <h1>Mitt bildegalleri:</h1>
+    <figure>
+        <img id="bilde" src="images/beach.webp" alt="Bilde">
+        <figcaption id="tekst"></figcaption>
+    </figure>
+    <button id="btnNeste">Neste</button>
+    <button id="btnForrige">Forrige</button>
+    
+    <script>
+        function neste(){
+            currentIndex++;
+            if(currentIndex > 4){
+                currentIndex = 0
+            }
+            let mappe = "images/";
+            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
+            bilde.src = bildefil;
+
+            currentIndex2++;
+            if(currentIndex2 > 4){
+                currentIndex2 = 0
+            }
+            let bildetekst = bildtekster[currentIndex2];
+            tekst = bildetekst
+            bilde.src = bildefil;
+        }
+
+        function forrige(){
+            currentIndex--;
+            if(currentIndex < 0){
+                currentIndex = 4
+            }
+            let mappe = "images/";
+            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
+            bilde.src = bildefil;
+        }
+
+        function oppdaterBilde(){
+            currentIndex++;
+            if(currentIndex > 4){
+                currentIndex = 0
+            }
+            let mappe = "images/";
+            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
+            bilde.src = bildefil;
+        }
+
+        let bildefiler = ["beach", "brygge", "ocean", "palmtree", "pink"]
+        let bildetekster =["beach sunset", "brygge sunset", "ocean sunset", "palmtree sunset", "pink sunset"]
+        let currentIndex = 0;
+        let currentIndex2 = 0;
+        let tekst = document.getElementById("tekst");
+        let bilde = document.getElementById("bilde");
+        let btnNeste = document.getElementById("btnNeste");
+        let btnForrige = document.getElementById("btnForrige");
+
+        btnNeste.addEventListener("click", neste);
+        btnForrige.addEventListener("click", forrige);
+        setInterval(oppdaterBilde, 2000);
+    </script>
+</body>
+</html>
