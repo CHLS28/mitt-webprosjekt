@@ -1,0 +1,75 @@
+/*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kano utleie</title>
+</head>
+<body>
+    <h1>Kano Utleie</h1>
+
+    <label>Velg en kano til å leie ut:</label><br>
+    <input type="radio" name="kano" value="A">Kano A<br>
+    <input type="radio" name="kano" value="B">Kano B<br>
+    <input type="radio" name="kano" value="C">Kano C<br>
+    <input type="radio" name="kano" value="D">Kano D<br>
+    <input type="radio" name="kano" value="E">Kano E<br><br>
+    <button onclick="status()"></button>
+
+    
+</body>
+<script>
+    let kanoer = ["A", "B", "C", "D", "E"]
+    let utleid = []
+</script>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kano Utleie</title>
+</head>
+<body>
+    <h1>Kano Utleie</h1>
+    <label>Kanoer: A, B, C, D, E</label>
+    <label for="inpKano">Skriv inn Kano:</label>
+    <input id="inpKano">
+    <button onclick="status()">Status</button>
+    <button onclick="lon()">Vis alle elever</button>
+    <button onclick="leverInn()">Slett siste elev</button>
+<p id="txtUt"></p>
+    <script>
+        function status(){
+            let txt = `<h4>Elev-oversikt</h4> <hr>`;
+            for (let i=0; i<elever.length; i++){
+                txt += `${elever[i]}<br>`;
+            }
+            
+            txtUt.innerHTML = txt;
+        }
+        function slettSisteElev(){
+            elever.pop();
+            visAlleElever();
+        }
+        function sokElev(){
+            let navn = document.getElementById("inpNavn").value;
+            let index = elever.indexOf(navn);
+            if (index !== -1) {
+                txtUt.innerHTML = `${navn} er elev nummer ${index + 1} i listen.`;
+            } else {
+                txtUt.innerHTML = `${navn} ble ikke funnet i listen.`;
+            }
+        }
+
+        let kano = ["A", "B", "C", "D", "E"];
+        let leietUt = ["C", "D"]
+    </script>
+</body>
+</html>
