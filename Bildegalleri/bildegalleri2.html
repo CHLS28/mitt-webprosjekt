@@ -83,7 +83,7 @@
 
         function neste() {
             currentIndex++;
-            if (currentIndex > 4) {
+            if (currentIndex >= bildefiler.length) {
                 currentIndex = 0;
             }
             let mappe = "images/";
@@ -101,7 +101,7 @@
         function forrige() {
             currentIndex--;
             if (currentIndex < 0) {
-                currentIndex = 4;
+                currentIndex = bildefiler.length -1;
             }
             let mappe = "images/";
             let bildefil = mappe + bildefiler[currentIndex] + ".webp";
@@ -109,7 +109,7 @@
 
             currentIndex2--;
             if (currentIndex2 < 0) {
-                currentIndex2 = 4;
+                currentIndex2 = bildetekster.length -1;
             }
             let bildetekst = bildetekster[currentIndex2];
             tekst.textContent = bildetekst;
