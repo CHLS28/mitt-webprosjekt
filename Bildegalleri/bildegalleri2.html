@@ -4,6 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bildegalleri</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFEB3B;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #FF5722;
+        }
+
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        figcaption {
+            margin-top: 10px;
+            color: #795548;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #FF9800;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FFC107;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Mitt bildegalleri:</h1>
@@ -13,46 +64,13 @@
     </figure>
     <button id="btnNeste">Neste</button>
     <button id="btnForrige">Forrige</button>
+
+    <audio id="backgroundMusic" loop>
+        <source src="music/bildegalleri.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
     
     <script>
-        function neste(){
-            currentIndex++;
-            if(currentIndex > 4){
-                currentIndex = 0
-            }
-            let mappe = "images/";
-            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
-            bilde.src = bildefil;
-
-            currentIndex2++;
-            if(currentIndex2 > 4){
-                currentIndex2 = 0
-            }
-            let bildetekst = bildtekster[currentIndex2];
-            tekst = bildetekst
-            bilde.src = bildefil;
-        }
-
-        function forrige(){
-            currentIndex--;
-            if(currentIndex < 0){
-                currentIndex = 4
-            }
-            let mappe = "images/";
-            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
-            bilde.src = bildefil;
-        }
-
-        function oppdaterBilde(){
-            currentIndex++;
-            if(currentIndex > 4){
-                currentIndex = 0
-            }
-            let mappe = "images/";
-            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
-            bilde.src = bildefil;
-        }
-
         let bildefiler = ["beach", "brygge", "ocean", "palmtree", "pink"]
         let bildetekster =["beach sunset", "brygge sunset", "ocean sunset", "palmtree sunset", "pink sunset"]
         let currentIndex = 0;
@@ -61,10 +79,51 @@
         let bilde = document.getElementById("bilde");
         let btnNeste = document.getElementById("btnNeste");
         let btnForrige = document.getElementById("btnForrige");
+        let backgroundMusic = document.getElementById("backgroundMusic");
+
+        function neste() {
+            currentIndex++;
+            if (currentIndex > 4) {
+                currentIndex = 0;
+            }
+            let mappe = "images/";
+            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
+            bilde.src = bildefil;
+
+            currentIndex2++;
+            if (currentIndex2 > 4) {
+                currentIndex2 = 0;
+            }
+            let bildetekst = bildetekster[currentIndex2];
+            tekst.textContent = bildetekst;
+        }
+
+        function forrige() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = 4;
+            }
+            let mappe = "images/";
+            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
+            bilde.src = bildefil;
+
+            currentIndex2--;
+            if (currentIndex2 < 0) {
+                currentIndex2 = 4;
+            }
+            let bildetekst = bildetekster[currentIndex2];
+            tekst.textContent = bildetekst;
+        }
+
+        function oppdaterBilde() {
+            neste();
+        }
 
         btnNeste.addEventListener("click", neste);
         btnForrige.addEventListener("click", forrige);
         setInterval(oppdaterBilde, 2000);
+
+        backgroundMusic.play();
     </script>
 </body>
 </html>
