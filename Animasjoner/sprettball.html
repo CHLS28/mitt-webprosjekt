@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keuframes</title>
+    <style>
+        #ball{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: blue;
+            animation: bortover 5s 1;
+        }
+        @keyframes bortover {
+            0% {transform: translateX(0px);}
+            10% {transform: translateX(100px) translateY(400px);}
+            20% {transform: translateX(200px) translateY(50px);}
+            30% {transform: translateX(300px) translateY(400px);}
+            40% {transform: translateX(400px) translateY(100px);}
+            50% {transform: translateX(500px) translateY(400px);}
+            60% {transform: translateX(600px) translateY(150px);}
+            70% {transform: translateX(700px) translateY(400px);}
+            80% {transform: translateX(800px) translateY(200px);}
+            90% {transform: translateX(900px) translateY(400px);}
+            95% {transform: translateX(950px) translateY(350px);}
+            100% {transform: translateX(1000px) translateY(400px);}
+        }
+        #gulv{
+            position: absolute;
+            height: 50px;
+            width: 100%;
+            background-color: green;
+            top: 80%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="ball"></div>
+    <div id="gulv"></div>
+    
+
+    
+</body>
+</html>
