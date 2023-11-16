@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS basic anim hover</title>
+    <style>
+        body{
+            position: relative;
+        }
+        #boks{
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            transition: 2s;
+            left: 300px;
+        }
+        #boks:hover{
+            background-color: blue;
+        }
+        #boks2{
+            position: absolute;
+            background-color: red;
+            width: 150px;
+            height: 150px;
+            left: 0px;
+            top: 0px;
+            transition: 3s;
+            
+        }
+        #boks2:hover{
+            top: 500px;
+            transform: scale(2) rotateZ(270deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="boks"></div>
+    <div id="boks2"></div>
+    
+</body>
+</html>
