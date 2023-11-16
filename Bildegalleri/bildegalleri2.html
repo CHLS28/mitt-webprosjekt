@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,8 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 24pt;
         }
 
         h1 {
@@ -48,6 +51,7 @@
             color: #fff;
             border-radius: 4px;
             transition: background-color 0.3s ease;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
 
         button:hover {
@@ -56,6 +60,7 @@
 
     </style>
 </head>
+
 <body>
     <h1>Mitt bildegalleri:</h1>
     <figure>
@@ -64,22 +69,27 @@
     </figure>
     <button id="btnNeste">Neste</button>
     <button id="btnForrige">Forrige</button>
+    <button id="btnStart" onclick="start()">Start</button>
+    <button id="btnStopp" onclick="stopp()">Stopp</button>
 
     <audio id="backgroundMusic" loop>
         <source src="music/bildegalleri.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    
+
     <script>
         let bildefiler = ["beach", "brygge", "ocean", "palmtree", "pink"]
-        let bildetekster =["beach sunset", "brygge sunset", "ocean sunset", "palmtree sunset", "pink sunset"]
+        let bildetekster = ["Beach sunset", "Brygge sunset", "Ocean sunset", "Palmtree sunset", "Pink sunset"]
         let currentIndex = 0;
         let currentIndex2 = 0;
         let tekst = document.getElementById("tekst");
         let bilde = document.getElementById("bilde");
         let btnNeste = document.getElementById("btnNeste");
         let btnForrige = document.getElementById("btnForrige");
+        let btnStart = document.getElementById("btnStart");
+        let btnStopp = document.getElementById("btnStopp");
         let backgroundMusic = document.getElementById("backgroundMusic");
+        let intervalId;
 
         function neste() {
             currentIndex++;
@@ -101,7 +111,7 @@
         function forrige() {
             currentIndex--;
             if (currentIndex < 0) {
-                currentIndex = bildefiler.length -1;
+                currentIndex = bildefiler.length - 1;
             }
             let mappe = "images/";
             let bildefil = mappe + bildefiler[currentIndex] + ".webp";
@@ -109,21 +119,26 @@
 
             currentIndex2--;
             if (currentIndex2 < 0) {
-                currentIndex2 = bildetekster.length -1;
+                currentIndex2 = bildetekster.length - 1;
             }
             let bildetekst = bildetekster[currentIndex2];
             tekst.textContent = bildetekst;
         }
 
-        function oppdaterBilde() {
-            neste();
+        function start() {
+            intervalId = setInterval(neste, 2000);
+            backgroundMusic.play();
+        }
+
+        function stopp() {
+            clearInterval(intervalId);
+            backgroundMusic.pause();
         }
 
         btnNeste.addEventListener("click", neste);
         btnForrige.addEventListener("click", forrige);
-        setInterval(oppdaterBilde, 2000);
 
-        backgroundMusic.play();
     </script>
 </body>
+
 </html>
