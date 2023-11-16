@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keuframes</title>
+    <style>
+        #ball{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: blue;
+            animation: framOgTilbake 4s infinite;
+        }
+        @keyframes framOgTilbake {
+            0% {transform: translateX(0px);}
+            50% {transform: translateX(400px);}
+            100% {transform: translateX(0px);}
+        }
+        #ball2{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            left: 200px;
+            background-color: red;
+            animation: oppOgNed 4s infinite;
+        }
+        @keyframes oppOgNed {
+            0% {transform: translateY(0px);}
+            50% {transform: translateY(250px);}
+            100% {transform: translateY(0px);}
+        }
+        #ball3{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: yellow;
+            animation: trekant 4s infinite;
+        }
+        @keyframes trekant {
+            0% {transform: translateX(0px);}
+            33% {transform: translateX(400px);}
+            66% {transform: translateY(400px);}
+            100% {transform: translateX(0px);}
+        }
+
+    </style>
+</head>
+<body>
+    <div id="ball3"></div>
+    <div id="ball"></div>
+    <div id="ball2"></div>
+    
+
+    
+</body>
+</html>
