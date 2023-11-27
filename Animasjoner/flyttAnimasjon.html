@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS- animasjon scale</title>
+
+    <style>
+        #ball{
+            background-color: blueviolet;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="ball"></div>
+    
+
+    <script>
+        function sjekkKollisjoner(){
+            if (posX > window.innerWidth -50){
+                fartX = -fartX;
+            }
+            else if (posX < 0){
+                fartX = -fartX*1.5;
+            }
+            if (posY > window.innerHeight -50){
+                fartY = -fartY;
+            }
+            else if (posY < 0){
+                fartY = -fartY*1.5;
+            }
+        }
+        function animerBall(){
+            posX += fartX;
+
+            posY += fartY;
+
+            ball.style.left = posX + "px";
+
+            ball.style.top = posY + "px";
+
+            sjekkKollisjoner();
+
+            requestAnimationFrame(animerBall);
+        }
+        let posX = 400;
+        let posY = 300
+        let fartX = 5;
+        let fartY = 1
+
+        animerBall();
+    </script>
+</body>
+</html>
