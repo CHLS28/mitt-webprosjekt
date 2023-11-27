@@ -51,12 +51,20 @@
     let lopetider = [];
 
     function visOversikt() {
+        let deltakerTider = [];
+        for (let i = 0; i < deltakere.length; i++) {
+            deltakerTider.push({ deltaker: deltakere[i], tid: lopetider[i] });
+        }
+
+        // Sorter arrayet basert på tid
+        deltakerTider.sort((a, b) => a.tid - b.tid);
+
         // Skriv ut hver deltakers navn og tid
         let resultatDiv = document.getElementById('resultat');
         resultatDiv.innerHTML = '';
 
-        for(let i = 0; i < deltakere.length; i++) {
-            resultatDiv.innerHTML += deltakere[i] + ': ' + lopetider[i] + ' min<br>';
+        for(let i = 0; i < deltakerTider.length; i++) {
+            resultatDiv.innerHTML += deltakerTider[i].deltaker + ': ' + deltakerTider[i].tid + ' min<br>';
         }
     }
     function leggTilDeltaker() {
