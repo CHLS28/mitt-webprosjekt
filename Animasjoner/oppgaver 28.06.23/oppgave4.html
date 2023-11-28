@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>oppgave 3</title>
-
+    <title>Oppgave 4</title>
     <style>
         #ball{
             width: 150px;
             height: 150px;
             left: 100px;
             border-radius: 50%;
-            background-color: green;
-            animation: framOgTilbake 4s infinite;
+            background-color: black;
+            animation: flytt 3s infinite;
         }
-        @keyframes framOgTilbake {
-            0% {transform: translateY(0px);}
-            50% {transform: translateY(400px);}
+        @keyframes flytt {
+            0% {transform: translateX(0px);}
+            100% {transform: translateX(1600px);}
         }
     </style>
 </head>
