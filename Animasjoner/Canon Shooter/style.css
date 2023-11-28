@@ -1,0 +1,31 @@
+#imgCannon{
+    width: 300px;
+    position: absolute;
+    top:400px;
+    left: 0px;
+    z-index: 1;
+}
+#kule{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    top: 440px;
+    left: 250px;
+    background-color: brown;
+    z-index: 0;
+}
+#enemyKule{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 440px;
+    left: 750px;
+    background-color: rgb(95, 42, 165);
+}
+#skytBtn{
+    margin-left: 50%;
+    margin-top: 10%;
+    transform: scale(3);
+}
