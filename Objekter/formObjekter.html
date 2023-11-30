@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fav film</title>
+</head>
+<body>
+    <h1>Min favorittfilm</h1>
+    <form id="formFilm">
+        <label for="inpTittel">Tittel:</label><br>
+        <input id="inpTittel" type="text" required><br>
+        <label for="inpÅr">År:</label><br>
+        <input id="inpÅr" type="number" required><br>
+        <label for="selSjanger">Sjanger:</label><br>
+        <select id="selSjanger" required>
+            <option value="">Velg sjanger ...</option>
+            <option>Drama</option>
+            <option>Action</option>
+            <option>Thriller</option>
+            <option>Sci-Fi</option>
+            <option>Komedie</option>
+            <option>Annet</option>
+        </select><br>
+        <label for="inpSkuespiller">Skuespiller:</label><br>
+        <input id="inpSkuespiller" type="text"><br><br>
+        <input type="submit">
+    </form>
+    <button onclick="seFavFilm()">Se favorittfilm</button><br>
+    <button onclick="endreAar()">Endre år</button><br>
+    <p id="txtUt"></p>
+    
+    <script>
+        function endreAar(){
+            if (Object.keys(film).length === 0) {
+                alert("Fyll ut skjema");
+            }
+            let nyttÅr = inpÅr.value;
+            film["år"] = nyttÅr;
+            txtUt.textContent = "Året ble endret.";
+        }
+            
+        function seFavFilm(){
+            if (Object.keys(film).length === 0) {
+                alert("Fyll ut skjema");
+            }
+            txtUt.innerHTML = `Tittel: ${film["tittel"]} <br>
+            År: ${film["år"]} <br>
+            Sjanger: ${film["sjanger"]} <br>
+            Skuespiller: ${film["skuespiller"]}`;
+            
+        }
+         function registrerFilm(event){
+            event.preventDefault();
+            film["tittel"] = inpTittel.value;
+            film["år"] = inpÅr.value;
+            film["sjanger"] = selSjanger.value;
+            film["skuespiller"] = inpSkuespiller.value;
+            
+         }
+         formFilm.onsubmit = registrerFilm;
+         const film ={};
+
+    </script>
+</body>
+</html>
