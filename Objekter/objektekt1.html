@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objekt1</title>
+</head>
+<body>
+    
+    <script>
+        //const elev = ["per", "jensen", "mann", "blondt", 26];
+        /*const elev = {
+            fornavn: "Per", 
+            etternavn: "Jensen",
+            alder: 26,
+            kjønn: "mann",
+            hårfarge: "blondt"
+        }
+        document.write(elev["fornavn"]);
+        document.write(elev["alder"]);
+        document.write(elev["hårfarge"]);*/
+
+
+        const bil = {
+            merke: "Ford",
+            farge: "Rød",
+            årsmodel: 2012,
+            seter: 5,
+            toppfart: 310
+        }
+
+        document.write(bil["merke"] + "<br>");
+        document.write(bil["farge"] + "<br>");
+        document.write(bil["årsmodel"] + "<br>");
+        document.write(bil["seter"] + "<br>");
+
+        bil["merke"] = "Ferrari";
+
+        let txt = `Min ${bil["merke"]} er en fin og ${bil["farge"]} bil <br>
+        fra ${bil["årsmodel"]}. Den har ${bil["seter"]}, og en toppfart på ${bil["toppfart"]} km/t.`;   
+        document.write("<br>" + txt);
+
+
+        const film = {
+            tittel: "Fars",
+            utgivelseÅr: 2016 ,
+            hovedkarakter: "Lightning McQueen"
+        }
+        film["tittel"] = "Cars";
+        film["utgivelseÅr"] = 2006;
+
+        let txt2 = `Filmen ${film["tittel"]} ble gitt ut i ${film["utgivelseÅr"]} og hovedkarakteren heter  ${film["hovedkarakter"]}`;
+        document.write("<br><br>" + txt2);
+
+    </script>
+</body>
+</html>
