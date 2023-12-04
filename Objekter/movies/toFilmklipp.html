@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To filmklipp</title>
+</head>
+<body>
+    <style>
+        #vid {
+            width: 450px;
+            height: 300px;
+        }
+    </style>
+    <video id="vid" src="" controls></video><br>
+    <button onclick="visFilm(this)">Damian Lillard</button>
+    <button onclick="visFilm(this)">Kawhi Leonard</button>
+    <p id="txtUt"></p>
+    
+    
+
+    <script>
+        function visFilm(knapp){
+            //txtUt.textContent = knapp.textContent;
+            if (knapp.textContent == "Damian Lillard"){
+                txtUt.innerHTML = DamianLillard.info;
+                vid.src = DamianLillard.videofil;
+                vid.play();
+            }
+            else if (knapp.textContent == "Kawhi Leonard"){
+                txtUt.innerHTML = KawhiLeonard.info;
+                vid.src = KawhiLeonard.videofil;
+                vid.play();
+            }
+
+    }
+        const DamianLillard = {
+            tittel: "Damian Lillard",
+            info: "Syk buzzer beater av Damian Lillard, seier over OKC Thunder.",
+            videofil: "Damian Lillard.mp4"
+        };
+        const KawhiLeonard = {
+            tittel: "Kawhi Leonard",
+            info: "Syk buzzer beater av Kawhi Leonard, seier over 76ers.",
+            videofil: "Kawhi Leonard.mp4"
+        };
+        
+        
+    </script>
+</body>
+</html>
