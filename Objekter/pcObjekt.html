@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pc oppvarming oppgave</title>
+</head>
+<body>
+    <p id="txtUt"></p>
+    
+</body>
+<script>
+    const pc = {
+        prosessor: "i7 13700k",
+        RAM: "32GB",
+        lagring: "2TB",
+        kjøling: "kraken 240",
+        mus: "logitech",
+        tastatur: "microsoft"
+
+    }
+
+    pc["RAM"] = "64GB"
+    pc["grafikkort"] = "RTX 4090"
+
+    txtUt.innerHTML = "Egenskaper<br>";    
+    for (const key in pc) {
+        let verdi = pc[key];
+        txtUt.innerHTML += `${key}: ${verdi} <br>`;
+    }
+    
+</script>
+</html>
