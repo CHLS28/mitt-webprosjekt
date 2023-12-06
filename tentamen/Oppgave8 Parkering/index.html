@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Parkeringssystem</title>
+</head>
+<body>
+
+<div id="parking-container">
+  <h2>Parkeringssystem</h2>
+
+  <!-- Legg til et input-element for registreringsnummer -->
+  <label for="licensePlate">Registreringsnummer:</label>
+  <input type="text" id="licensePlate" placeholder="Skriv inn reg.nr.">
+
+  <label for="numberOfHours">Velg antall timer:</label>
+  <select id="numberOfHours">
+    <option value="1">1 time</option>
+    <option value="2">2 timer</option>
+    <option value="3">3 timer</option>
+    <option value="4">4 timer</option>
+  </select>
+
+  <!-- Oppdatert button-element med onclick-funksjon -->
+  <button onclick="payParking()">Betal parkering</button>
+  <button onclick="showRevenue()">Vis inntekter</button>
+  <button onclick="endDay()">Avslutt dagen</button>
+
+  <!-- Legg til en container for animasjonen -->
+  <div id="remaining-time-bar"></div>
+
+  <!-- Legg til en meldingscontainer -->
+  <div id="message-container"></div>
+
+  <ul id="revenue-list"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
