@@ -1,0 +1,101 @@
+/* Basisstil for hele dokumentet */
+
+body {
+    font-family: 'Arial', sans-serif;  /* Angir skrifttypen for hele dokumentet */
+    background-color: #fff; /* Endret bakgrunnsfarge til hvit */
+    color: #333; /* Angir tekstfargen til mørk grå */
+    margin: 0; /* Nullstiller ytre marger */
+    padding: 0; /* Nullstiller innvendige mellomrom */
+    display: flex; /* Bruker flexbox for layout */
+    align-items: center; /* Justerer vertikal plassering til midten av siden */
+    justify-content: center; /* Justerer horisontal plassering til midten av siden */
+    min-height: 100vh; /* Setter minimum høyde til 100% av visuell høyde */
+    flex-direction: column; /* Justert for å plassere elementene i kolonne */
+}
+
+/* Stil for overskrift (h1-element) */
+
+h1 {
+    color: #006400; /* Endret fargen til mørk grønn (#006400) */
+}
+
+/* Stil for quizelementet (div med id quizForm) */
+
+#quizForm {
+    background-color: #fff; /* Endret bakgrunnsfarge til hvit */
+    padding: 20px; /* Legger til innvendig mellomrom rundt quizelementet */
+    border-radius: 10px; /* Rundet av hjørner med 10px radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Lagt til en subtil skyggeeffekt */
+}
+
+/* Generell stil for avsnittselementer (p-elementer) */
+
+p {
+    margin: 20px 0; /* Legger til 20px mellomrom over og under avsnittselementer */
+}
+
+/* Stil for radioknapper (input-elementer av typen radio) */
+
+input[type="radio"] {
+    margin-right: 10px; /* Legger til 10px mellomrom til høyre for radioknapper */
+}
+
+/* Stil for knappen (input-element av typen button) */
+
+input[type="button"] {
+    background-color: #8B0000; /* Endret fargen til mørk rød (#8B0000) */
+    color: #fff; /* Angir tekstfargen til hvit */
+    padding: 10px 20px; /* Legger til innvendig mellomrom i knappen */
+    border: none; /* Fjerner grensen rundt knappen */
+    border-radius: 5px; /* Rundet av hjørner med 5px radius */
+    cursor: pointer; /* Endrer musepeker til håndpeker ved hover */
+    margin-top: 20px; /* Legger til 20px mellomrom over knappen for å justere plassering */
+}
+
+/* Hover-stil for knappen */
+
+input[type="button"]:hover {
+    background-color: #800000; /* Endret hover-fargen til en mørkere rød (#800000) */
+}
+
+/* Stil for resultatmeldingselementet */
+
+#scoreMessage {
+    margin-top: 20px; /* Legger til 20px mellomrom over resultatmeldingen */
+    font-weight: bold; /* Gjør teksten fet */
+    color: #8B0000; /* Endret fargen til mørk rød (#8B0000) */
+}
+
+/* Stil for riktige svarselementet (som er skjult inntil brukeren sjekker svar) */
+
+#correctAnswers {
+    margin-top: 10px; /* Legger til 10px mellomrom over riktige svar */
+    color: #3498db; /* Lagt til en lett lyseblå farge på fasiten (#3498db) */
+}
+
+/* Ekstra juledekorasjoner med fylte stjerne-ikoner */
+
+body::before,
+body::after {
+    content: '\2605'; /* Fylt stjerne-ikon */
+    font-size: 60px; /* Størrelsen på stjerne-ikonet */
+    color: #006400; /* Endret fargen til mørk grønn (#006400) */
+    position: fixed; /* Plassert stjernene fast i visningen */
+    z-index: -1; /* Plasserer stjernene bak annet innhold */
+}
+
+/* Stil for stjernen plassert øverst til høyre */
+
+body::before {
+    top: 50px; /* Plasserer stjernen 50px fra toppen */
+    right: 50px; /* Plasserer stjernen 50px fra høyre */
+}
+
+/* Stil for stjernen plassert nederst til venstre */
+
+body::after {
+    bottom: 50px; /* Plasserer stjernen 50px fra bunnen */
+    left: 50px; /* Plasserer stjernen 50px fra venstre */
+}
+
+

@@ -1,0 +1,59 @@
+<!-- Dokumentets type og språkspesifikasjon -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <script src="script.js"></script>
+    <!-- Meta-informasjon, inkludert tegnsett og skjermstørrelsesjustering -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Tittelen på dokumentet som vises i nettlesertabben -->
+    <title>Julequiz</title>
+
+    <!-- Kobler til ekstern CSS-fil for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Overskrift for Julequizen -->
+    <h1>Julequiz</h1>
+
+    <!-- Container (div-element) for hele quizen -->
+    <div id="quizForm">
+        <!-- Spørsmål 1 -->
+        <p>Hvilken brus bruker Julenissen i sine reklamer?</p>
+        <input type="radio" name="q1" value="feil"> Monster
+        <input type="radio" name="q1" value="feil"> Redbull
+        <input type="radio" name="q1" value="riktig"> Cola
+
+        <!-- Spørsmål 2 -->
+        <p>Hvilket land sender et stort juletre til London hvert år?</p>
+        <input type="radio" name="q2" value="feil"> Danmark
+        <input type="radio" name="q2" value="riktig"> Norge
+        <input type="radio" name="q2" value="feil"> Sverige
+
+        <!-- Spørsmål 3 -->
+        <p>Hvor mange reinsdyr har Julenissen?</p>
+        <input type="radio" name="q3" value="feil"> 15
+        <input type="radio" name="q3" value="feil"> 27
+        <input type="radio" name="q3" value="riktig"> 9
+
+        <!-- Spørsmål 4 -->
+        <p>Hvilken stjerne fulgte "de tre vise menn"?</p>
+        <input type="radio" name="q4" value="riktig"> Betlehemsstjernen
+        <input type="radio" name="q4" value="feil"> Sirius
+        <input type="radio" name="q4" value="feil"> Canopus
+
+        <!-- Knapp for å sjekke svar, utløser JavaScript-funksjonen checkAnswers() -->
+        <br>
+        <input type="button" value="Sjekk svar" onclick="checkAnswers()">
+    </div>
+
+    <!-- Melding som viser brukerens resultat -->
+    <p id="scoreMessage"></p>
+
+    <!-- Container (div-element) som viser riktige svar, skjules inntil brukeren sjekker svar -->
+    <p id="correctAnswers" style="display: none;"></p>
+
+</body>
+</html>
