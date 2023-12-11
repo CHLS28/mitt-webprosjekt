@@ -1,5 +1,7 @@
 // Variabel for å lagre inntektene
 let revenue = [];
+let tider = [];
+let tekst = document.getElementById("txtUt")
 
 // Funksjon for å betale parkering
 function payParking() {
@@ -10,7 +12,17 @@ function payParking() {
   const numberOfHours = document.getElementById("numberOfHours").value;
 
   // Beregner prisen basert på valgt antall timer
-  const price = numberOfHours * 28;
+  const price = numberOfHours
+  if (numberOfHours.value <= 2){
+    price = numberOfHours.value * 0;
+  }
+  else {
+    price = numberOfHours * 35 - 70;
+  }
+
+  tider.push(numberOfHours)
+  tekst.innerHTML = 
+  
 
   // Viser en popup-melding med prisen
   alert(`Du må betale ${price} kr for parkering.`);
@@ -65,3 +77,7 @@ function endDay() {
   // Tømmer inntektslisten for å starte en ny dag
   revenue = [];
 }
+
+
+
+

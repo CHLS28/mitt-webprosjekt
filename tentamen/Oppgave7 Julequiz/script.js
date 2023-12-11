@@ -1,5 +1,11 @@
 // Funksjonen checkAnswers blir utløst når brukeren sjekker svar.
+let buttonPressCount = 0;
+let incorrectAttempts = 0;
+
 function checkAnswers() {
+    // Increment the button press count each time the function is called.
+    buttonPressCount++;
+
     // Henter HTML-elementer fra DOM.
     const form = document.getElementById("quizForm");
     const scoreMessage = document.getElementById("scoreMessage");
@@ -30,14 +36,24 @@ function checkAnswers() {
     }
 
     // Oppdaterer scoreMessage med brukerens resultat.
-    scoreMessage.textContent = `Du fikk ${score} av 4 riktige svar.`;
+    scoreMessage.textContent = `Du fikk ${score} av 5 riktige svar.`;
 
     // Sjekker om det er noen feilaktige svar og viser dem i correctAnswersDiv.
     if (correctAnswers.length > 0) {
         // Setter inn HTML for feilaktige svar i correctAnswersDiv.
-        correctAnswersDiv.innerHTML = `<p>Riktige svar:</p><ul><li>Spørsmål 1: Cola</li><li>Spørsmål 2: Norge</li><li>Spørsmål 3: 9</li><li>Spørsmål 4: Betlehemsstjernen</li></ul>`;
-        correctAnswersDiv.style.display = "block"; // Viser div-elementet med riktige svar.
+        correctAnswersDiv.innerHTML = `<p>Feilaktige svar:</p><ul>${correctAnswers.map(answer => `<li>${answer}</li>`).join('')}</ul>`;
+        correctAnswersDiv.style.display = "block"; // Viser div-elementet med feilaktige svar.
+        
+        // Increment the incorrect attempts count.
+        incorrectAttempts++;
     } else {
         correctAnswersDiv.style.display = "none"; // Skjuler div-elementet hvis det ikke er feilaktige svar.
+    }
+
+    // Check if the user has pressed the button three times and answered incorrectly each time.
+    if (buttonPressCount === 3 && incorrectAttempts === 3) {
+        alert("Du har svart feil tre ganger. Du blir nå sendt til vg.no.");
+        // Redirect the user to vg.no
+        window.location.href = "https://www.vg.no";
     }
 }
