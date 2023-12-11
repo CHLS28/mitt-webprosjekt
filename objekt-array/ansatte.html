@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inpNr">Skriv inn ansatt nummer</label>
+    <input type="text" id="inpNr">
+    <label for="inpNr">Skriv inn ansatt alder</label>
+    <input type="text" id="inpAlder">
+   
+    <button onclick="visAlleAnsatte()">Vis alle ansatte</button>
+    <button onclick="visAntallAnsatte()">Vis antall ansatte</button>
+    <button onclick="sokAnsattNr()">Søk etter Ansatt</button>
+    <button onclick="sokAnsattAlder()">Søk etter Alder</button>
+
+
+    <p id="txtUt"></p>
+    <script>
+        // TODO: legg til visAntallAnsatte()
+        function visAlleAnsatte(){
+            // Begrens til fornavn og etternavn
+            /* Per Jensen
+            Sara Johnsen
+            ...
+            */
+           txtUt.innerHTML = "<h3>Ansattliste</h3>";
+           for (let i=0; i<ansatte.length; i++) {
+                let ansatt = ansatte[i];
+                txtUt.innerHTML += `${ansatt.fornavn} ${ansatt.etternavn} <br>`;
+           }
+        }
+        function visAntallAnsatte(){
+            txtUt.innerHTML += `${ansatte.length} <br>`;
+        }
+        function sokAnsattNr(){
+    // Les inn fra input
+    let nrInn = inpNr.value;
+
+    // Gå gjennom alle ansatte og sammenlign ansattnr med input
+    for (let i = 0; i < ansatte.length; i++) {
+        let ansatt = ansatte[i];
+
+        // Hvis det er en match, skriv ut all info
+        if (nrInn === ansatt.ansattnr) {
+            txtUt.innerHTML = `<h3>Ansattinformasjon</h3>
+                                Navn: ${ansatt.fornavn} ${ansatt.etternavn} <br>
+                                Alder: ${ansatt.alder} <br>
+                                Ansattnummer: ${ansatt.ansattnr} <br>`;
+            
+        }
+    }
+}
+
+    
+        // Lager et ansatte objekt-array
+        let ansatte = [
+    {
+        fornavn: "Per",
+        etternavn: "Jensen",
+        alder: 17,
+        ansattnr: "08543"
+    },
+    {
+        fornavn: "Sara",
+        etternavn: "Johnsen",
+        alder: 21,
+        ansattnr: "09875"
+    },
+    {
+        fornavn: "Lars",
+        etternavn: "Nielsen",
+        alder: 25,
+        ansattnr: "12345"
+    },
+    {
+        fornavn: "Emma",
+        etternavn: "Hansen",
+        alder: 30,
+        ansattnr: "54321"
+    },
+    {
+        fornavn: "Ole",
+        etternavn: "Kristiansen",
+        alder: 45,
+        ansattnr: "20202"
+    },
+    {
+        fornavn: "Ingrid",
+        etternavn: "Larsen",
+        alder: 28,
+        ansattnr: "30303"
+    },
+    {
+        fornavn: "Mohamed",
+        etternavn: "Ali",
+        alder: 32,
+        ansattnr: "40404"
+    },
+    {
+        fornavn: "Aisha",
+        etternavn: "Ahmed",
+        alder: 26,
+        ansattnr: "50505"
+    },
+    {
+        fornavn: "Andreas",
+        etternavn: "Berg",
+        alder: 37,
+        ansattnr: "60606"
+    },
+    {
+        fornavn: "Maria",
+        etternavn: "Solberg",
+        alder: 29,
+        ansattnr: "70707"
+    },
+    {
+        fornavn: "Jan",
+        etternavn: "Karlsen",
+        alder: 50,
+        ansattnr: "80808"
+    },
+    {
+        fornavn: "Sofie",
+        etternavn: "Nilsen",
+        alder: 22,
+        ansattnr: "90909"
+    },
+    {
+        fornavn: "Karl",
+        etternavn: "Pettersen",
+        alder: 41,
+        ansattnr: "10101"
+    },
+    {
+        fornavn: "Linda",
+        etternavn: "Johansen",
+        alder: 35,
+        ansattnr: "11111"
+    },
+    {
+        fornavn: "Ali",
+        etternavn: "Omar",
+        alder: 39,
+        ansattnr: "12121"
+    }
+];
+
+
+
+
+    </script>
+</body>
+</html>
