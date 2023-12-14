@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Elevoversikt</h2>
+
+    <button onclick="visElever()">Vis elever med bilder</button>
+
+    <figure>
+        <img id="bilde">
+        <figcaption id="bildeTekst">
+        </figcaption>
+        <img id="bilde2">
+        <figcaption id="bildeTekst2">
+    </figure>
+    <script>
+        function visElever(){
+            bilde.src = elev.bildeURL;
+            bilde2.src = elev2.bildeURL;
+
+            let txt = `${elev.fornavn} ${elev.etternavn}<br>
+            Alder: ${elev.alder}<br>
+            Klasse: ${elev.klasse}`;
+
+            let txt2 = `${elev2.fornavn} ${elev2.etternavn}<br>
+            Alder: ${elev2.alder}<br>
+            Klasse: ${elev2.klasse}`;
+
+            bildeTekst.innerHTML = txt;
+            bildeTekst2.innerHTML = txt2;
+
+            // Utvid for elev2
+        }
+        let elev = {
+            fornavn:"Stein",
+            etternavn:"Dahl",
+            alder: 17,
+            klasse: "2IT",
+            bildeURL: "elevBilder/Profile01.png"
+        }
+
+        // TODO: Utvid med 1 elev til
+        let elev2 = {
+            fornavn:"Tom",
+            etternavn:"Hansen",
+            alder: 18,
+            klasse: "2IT",
+            bildeURL: "elevBilder/Profile02.png"
+        }
+
+        
+    </script>
+</body>
+</html>
