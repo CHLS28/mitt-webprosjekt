@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="mainContent">
+        <h1>Lage elements med js</h1>
+    </main>
+    
+    
+    <script>
+        let el1 = document.createElement("h1");
+        el1.textContent = "En overskrift til";
+        mainContent.appendChild(el1);
+
+
+        let el2 = document.createElement("p");
+        el2.textContent = "God Jul";
+        mainContent.appendChild(el2);
+
+
+        let el3 = document.createElement("p");
+        el3.textContent = "Juletre";
+        el3.style.color = "Red";
+        el3.style.backgroundColor = "Green";
+        //mainContent.appendChild(el3);
+        mainContent.insertBefore(el3, el2);
+
+
+        let el4 = document.createElement("ul");
+        let el5 = document.createElement("li");
+        let el6 = document.createElement("li");
+        let el7 = document.createElement("li");
+        let el8 = document.createElement("li");
+
+        el4.textContent = ("Ønskeliste:");
+        el5.textContent = ("penger");
+        el6.textContent = ("sokker");
+        el7.textContent = ("pysj");
+        el8.textContent = ("v-bucks");
+
+        mainContent.appendChild(el4);
+        el4.appendChild(el5);
+        el4.appendChild(el6);
+        el4.appendChild(el7);
+        el4.appendChild(el8);
+    </script>
+</body>
+</html>
