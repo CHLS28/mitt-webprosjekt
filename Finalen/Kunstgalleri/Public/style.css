@@ -1,0 +1,102 @@
+/*Fargepanel: 
+6420AA Purple
+FF3EA5 Strong Pink
+FF7ED4 Baby Pink
+FFB5DA Lys Pink
+*/
+
+body{
+    background-color: #FF7ED4;
+    margin: 0;
+}
+
+header{
+    background-color: #6420AA;
+    padding: 20px;
+}
+
+.galleri figure{
+    width: 200px;
+    border: 3px solid #FF3EA5;
+    background-color: #FFB5DA;
+}
+
+.galleri img{
+    width: 100%;
+}
+
+figcaption {
+    padding-left: 20px;
+}
+
+@media screen and (min-width: 900px) {
+    .galleri{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .galleri figure{
+        flex: 1 1 200px;
+    }
+}
+
+footer {
+    background-color: #FF3EA5; /* Strong Pink */
+    color: #FFFFFF; /* White text color */
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.kontakt {
+    background-color: #FFB5DA; /* Lys Pink */
+    padding: 20px;
+    margin-top: 20px;
+    width: 30%;
+}
+
+.kontakt h2 {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    height: 100px;
+}
+
+button[type="submit"] {
+    background-color: #6420AA; /* Purple */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+    background-color: #4B1173; /* Darker Purple on hover */
+}
+
+.galleri figure img.enlarge {
+    width: 600px;
+    height: auto;
+}
