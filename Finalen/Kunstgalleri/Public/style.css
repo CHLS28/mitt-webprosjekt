@@ -1,102 +1,129 @@
-/*Fargepanel: 
+/* Fargepanel: 
 6420AA Purple
 FF3EA5 Strong Pink
 FF7ED4 Baby Pink
 FFB5DA Lys Pink
 */
 
-body{
+body {
     background-color: #FF7ED4;
     margin: 0;
 }
 
-header{
-    background-color: #6420AA;
+header {
+    background-color: #6420AA; /* Purple */
     padding: 20px;
+    color: white;
+    text-align: center;
 }
 
-.galleri figure{
-    width: 200px;
-    border: 3px solid #FF3EA5;
-    background-color: #FFB5DA;
+.galleri {
+    padding: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.galleri img{
+.galleri figure {
+    position: relative;
+    flex: 1 1 300px; /* Adjust basis to 300px, but allow shrink and grow */
+    max-width: 300px;
+    margin-left: auto;
+    border: 3px solid #FF3EA5; /* Strong Pink */
+    margin: 10px; /* Adds margin for spacing between items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: visible; /* Ensures no content spills out */
+    background-color: #FFB5DA; /* Lys Pink */
+}
+
+.galleri img {
+    position: relative;
     width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
+    transition: transform 0.3s ease-in-out; /* Smooth zoom animation */
+    cursor: zoom-in; /* Indicate clickable element */
 }
 
-figcaption {
+.galleri img.zoomed {
+    position: absolute; /* Make absolute only on hover */
+    transform: scale(1.4); /* Adjust position and scale */
+    z-index: 2; /* Higher z-index to be on top */
+    cursor: zoom-out;
+}
+
+#blurOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade in/out for blur */
+    z-index: -1; /* Behind the zoomed image (z-index: 2) */
+}
+
+#blurOverlay.blur {
+    opacity: 1; /* Becomes visible when active */
+    z-index: 1;
+}
+
+.galleri figcaption {
     padding-left: 20px;
 }
 
-@media screen and (min-width: 900px) {
-    .galleri{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .galleri figure{
-        flex: 1 1 200px;
+.zoom-out {
+    cursor: zoom-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+    .galleri figure {
+        flex-basis: 100%; /* Each figure takes full width on smaller screens */
     }
 }
 
-footer {
-    background-color: #FF3EA5; /* Strong Pink */
-    color: #FFFFFF; /* White text color */
-    padding: 20px;
-    text-align: center;
-    font-size: 16px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.center-wrapper {
+    margin-left: 10%;
+    width: 80%;
 }
 
 .kontakt {
-    background-color: #FFB5DA; /* Lys Pink */
-    padding: 20px;
-    margin-top: 20px;
-    width: 30%;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
 }
 
-.kontakt h2 {
-    margin-bottom: 10px;
+.kontakt form {
+    border: 3px solid #6420AA; /* Purple */
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
+form > * {
     display: block;
-    margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group textarea {
+.kontakt input,
+.kontakt textarea {
+    margin-bottom: 10px;
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
 }
 
-.form-group textarea {
-    height: 100px;
+.kontakt textarea {
+    min-height: 80px;
 }
 
-button[type="submit"] {
-    background-color: #6420AA; /* Purple */
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
+.kontakt input[type="submit"] {
+    width: auto;
 }
 
-button[type="submit"]:hover {
-    background-color: #4B1173; /* Darker Purple on hover */
-}
-
-.galleri figure img.enlarge {
-    width: 600px;
-    height: auto;
+footer {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #FF3EA5; /* Strong Pink */
+    color: white;
+    text-align: center;
 }

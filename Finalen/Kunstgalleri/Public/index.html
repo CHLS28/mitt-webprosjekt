@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css ">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
        <h1>Oscars samlede verker</h1>
        <p>Oljemalerier inspirert av natur og mennesker</p> 
     </header>
+    <div id="blurOverlay"></div>
 
-
+    <div class="center-wrapper">
     <section class="galleri">
         <figure>
-            <img src="https://picsum.photos/400?random=1" alt="">
+            <img id="testbilde" src="https://picsum.photos/400?random=1" alt="">
             <figcaption>
-                <h4>Tittel</h4>
-                <p>Beskrivelse</p>
+            <h4>Tittel</h4>
+            <p>Beskrivelse</p>
                 <p>2449,-</p>
             </figcaption>
         </figure>
@@ -66,26 +67,22 @@
     </section>
     
     <section class="kontakt">
-        <h2>Kontakt oss</h2>
-        <form action="#" method="post">
-            <div class="form-group">
-                <label for="emne">Emne:</label>
-                <input type="text" id="emne" name="emne" required>
-            </div>
-            <div class="form-group">
-                <label for="epost">E-post:</label>
-                <input type="email" id="epost" name="epost" required>
-            </div>
-            <div class="form-group">
-                <label for="melding">Melding:</label>
-                <textarea id="melding" name="melding" rows="4" required></textarea>
-            </div>
-            <button type="submit">Send</button>
+        
+        <form>
+            <h2>Kontakt- og bestillingsskjema</h2>
+            <label for="inpEmne">Emne:</label>
+            <input type="text" id="inpEmne">
+            <label for="inpMelding">Melding:</label>
+            <textarea id="inpMelding"></textarea>
+            <label for="inpEpost">E-post:</label>
+            <input type="email" id="inpEpost">
+            <input type="submit" value="Send melding">
         </form>
+        
     </section>
-    <br><br><br>
+</div>
     <footer>
-        Laget av Jens
+        Laget av Jens Bergenstolt.
     </footer>
 </body>
 </html>
