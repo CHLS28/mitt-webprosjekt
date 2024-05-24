@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %>
+
+<main>
+    <h2>Vote Now</h2>
+    
+    <form action="/vote" method="POST">
+        <div class="voting-section">
+            <label for="candidate">Choose a Candidate:</label>
+            <select id="candidate" name="candidate">
+                <option value="Theo Pus">Theo Pus</option>
+                <option value="Slivka Boss">Slivka Boss</option>
+                <option value="Patryk Polskaaa">Patryk Polskaaa</option>
+            </select>
+        </div>
+        
+        <div class="voting-section">
+            <label for="name">Your Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+        
+        <div class="voting-section">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="voting-section">
+            <button type="submit">Submit Vote</button>
+        </div>
+    </form>
+
+    
+</main>
+
+<%- include('partials/footer.ejs') %>
+

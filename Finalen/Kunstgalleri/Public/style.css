@@ -96,10 +96,11 @@ header {
 }
 
 .kontakt form {
-    border: 3px solid #6420AA; /* Purple */
+    border: 3px solid #FF3EA5;
     padding: 30px;
     width: 90%;
     max-width: 600px;
+    background-color: #FFB5DA;
 }
 
 form > * {

@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+<h1>Student List</h1>
+ 
+    <!-- Search Form -->
+    <form action="/showStudents" method="get">
+        <label for="fornavn">First Name:</label>
+        <input type="text" id="fornavn" name="fornavn" placeholder="Enter first name">
+        <br>
+        <label for="etternavn">Last Name:</label>
+        <input type="text" id="etternavn" name="etternavn" placeholder="Enter last name">
+        <br>
+        <button type="submit">Search</button>
+    </form>
+ 
+    <!-- Results Table -->
+    <table>
+        <tr>
+            <th>Fornavn</th>
+            <th>Etternavn</th>
+            <!-- Add more columns as necessary -->
+        </tr>
+        <% elever.forEach(elev => { %>
+        <tr>
+            <td><%= elev.fornavn %></td>
+            <td><%= elev.etternavn %></td>
+            <!-- Add more columns as necessary -->
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
+ 

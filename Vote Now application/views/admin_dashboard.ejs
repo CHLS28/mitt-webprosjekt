@@ -1,0 +1,14 @@
+<%- include('partials/header.ejs') %>
+
+<main>
+    <h2>Admin Dashboard</h2>
+    
+    <h3>Voting Statistics</h3>
+    <ul>
+        <% Object.entries(statistics).forEach(([candidate, count]) => { %>
+            <li><%= candidate %>: <%= count %> votes</li>
+        <% }); %>
+    </ul>
+</main>
+
+<%- include('partials/footer.ejs') %>
