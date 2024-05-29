@@ -1,0 +1,37 @@
+body {
+    background-color: #f5e6ca; /* Varm bakgrunnsfarge */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#oversikt {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Stil for å legge til et bilde */
+img {
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px; /* Rundede hjørner for bildecontaineren */
+}
+
+button {
+    background-color: #e74c3c; /* Varm knappefarge */
+    color: #fff; /* Tekstfarge på knappene */
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px 0; /* Legg til litt mellomrom over og under knappene */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c0392b; /* Fargeendring ved hover */
+}

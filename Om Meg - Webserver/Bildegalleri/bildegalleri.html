@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildegalleri</title>
+</head>
+<body>
+    <h1>Mitt bildegalleri:</h1>
+    <img id="bilde" src="images/sunset1.webp">
+    <button id="btnNeste">Neste</button>
+    <button id="btnForrige">Forrige</button>
+    
+</body>
+
+<script>
+    function neste(){
+        bildenr++;
+        if(bildenr > 5){
+            bildenr = 1;
+        }
+        bilde.src = `images/sunset${bildenr}.webp`;
+    }
+    function forrige(){
+        bildenr--;
+        if(bildenr < 1){
+            bildenr = 5;
+        }
+        bilde.src = `images/sunset${bildenr}.webp`;
+    }
+
+    btnNeste.addEventListener("click", neste);
+    btnForrige.addEventListener("click", forrige);
+
+    let bildenr = 1;
+
+</script>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildegalleri</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFEB3B;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 24pt;
+        }
+
+        h1 {
+            color: #FF5722;
+        }
+
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        figcaption {
+            margin-top: 10px;
+            color: #795548;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #FF9800;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        button:hover {
+            background-color: #FFC107;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/prosjekter.html"><button>Tilbake</button></a>
+    <h1>Mitt bildegalleri:</h1>
+    <figure>
+        <img id="bilde" src="images/beach.webp" alt="Bilde">
+        <figcaption id="tekst"></figcaption>
+    </figure>
+    <div class="button-group">
+        <button id="btnNeste">Neste</button>
+        <button id="btnForrige">Forrige</button>
+    </div>
+    <div class="button-group">
+        <button id="btnStart" onclick="start()">Start</button>
+        <button id="btnStopp" onclick="stopp()">Stopp</button>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="music/bildegalleri.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        let bildefiler = ["beach", "brygge", "ocean", "palmtree", "pink"]
+        let bildetekster = ["Beach sunset", "Brygge sunset", "Ocean sunset", "Palmtree sunset", "Pink sunset"]
+        let currentIndex = 0;
+        let currentIndex2 = 0;
+        let tekst = document.getElementById("tekst");
+        let bilde = document.getElementById("bilde");
+        let btnNeste = document.getElementById("btnNeste");
+        let btnForrige = document.getElementById("btnForrige");
+        let btnStart = document.getElementById("btnStart");
+        let btnStopp = document.getElementById("btnStopp");
+        let backgroundMusic = document.getElementById("backgroundMusic");
+        let intervalId;
+
+        function neste() {
+            currentIndex++;
+            if (currentIndex >= bildefiler.length) {
+                currentIndex = 0;
+            }
+            let mappe = "images/";
+            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
+            bilde.src = bildefil;
+
+            currentIndex2++;
+            if (currentIndex2 > 4) {
+                currentIndex2 = 0;
+            }
+            let bildetekst = bildetekster[currentIndex2];
+            tekst.textContent = bildetekst;
+        }
+
+        function forrige() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = bildefiler.length - 1;
+            }
+            let mappe = "images/";
+            let bildefil = mappe + bildefiler[currentIndex] + ".webp";
+            bilde.src = bildefil;
+
+            currentIndex2--;
+            if (currentIndex2 < 0) {
+                currentIndex2 = bildetekster.length - 1;
+            }
+            let bildetekst = bildetekster[currentIndex2];
+            tekst.textContent = bildetekst;
+        }
+
+        function start() {
+            intervalId = setInterval(neste, 2000);
+            backgroundMusic.play();
+        }
+
+        function stopp() {
+            clearInterval(intervalId);
+            backgroundMusic.pause();
+        }
+
+        btnNeste.addEventListener("click", neste);
+        btnForrige.addEventListener("click", forrige);
+
+    </script>
+</body>
+
+</html>
