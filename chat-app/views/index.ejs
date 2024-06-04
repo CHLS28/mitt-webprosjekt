@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <style>
+      .meldingerContainer {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+      }
+
+      .melding {
+        max-width: 60%;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .melding.left {
+        align-self: flex-start;
+        background-color: #f1f1f1;
+        border-bottom-right-radius: 10px;
+      }
+
+      .melding.right {
+        align-self: flex-end;
+        background-color: #d1f1d1;
+        border-bottom-left-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>2IT Kose-Chat</h1>
+    <a href="/logout">Logout</a>
+    <form action="/nymelding" method="post" id="meldingForm">
+      <label for="inpMelding">Skriv ny melding:</label><br />
+      <input type="text" id="inpMelding" name="melding" />
+    </form>
+
+    <% if(locals.meldinger) { %>
+    <div class="meldingerContainer">
+      <% for(let i=meldinger.length-1; i >= 0; i--) { 
+        let sideClass = (meldinger.length - 1 - i) % 2 === 0 ? 'right' : 'left';
+      %>
+        <div class="melding <%= sideClass %>">
+          <%= meldinger[i] %>
+        </div>
+      <% } %>
+    </div>
+    <% } %>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var input = document.getElementById("inpMelding");
+        input.addEventListener("keypress", function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            document.querySelector(".meldingerContainer").innerHTML = "";
+            document.getElementById("meldingForm").submit();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Løpetidsregistrering</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        input, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #resultat {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/prosjekter.html"><button>Tilbake</button></a>
+    <h1>Løpetidsregistrering</h1>
+    <input type="text" id="navnInput" placeholder="Deltakers navn">
+    <input type="number" id="tidInput" placeholder="Tid i minutter">
+    <button id="registrerKnapp">Registrer Deltaker</button>
+    <button id="visOversiktKnapp">Vis Oversikt</button>
+    <button id="finnVinnerKnapp">Finn Vinner</button>
+    <div id="resultat"></div>
+</body>
+<script>
+    let deltakere = [];
+    let lopetider = [];
+
+    function visOversikt() {
+        let deltakerTider = [];
+        for (let i = 0; i < deltakere.length; i++) {
+            deltakerTider.push({ deltaker: deltakere[i], tid: lopetider[i] });
+        }
+
+        // Sorter arrayet basert på tid
+        deltakerTider.sort((a, b) => a.tid - b.tid);
+
+        // Skriv ut hver deltakers navn og tid
+        let resultatDiv = document.getElementById('resultat');
+        resultatDiv.innerHTML = '';
+
+        for(let i = 0; i < deltakerTider.length; i++) {
+            resultatDiv.innerHTML += deltakerTider[i].deltaker + ': ' + deltakerTider[i].tid + ' min<br>';
+        }
+    }
+    function leggTilDeltaker() {
+        // Hent navn og tid fra input-feltene og legg dem til i arrays
+        let navn = document.getElementById('navnInput').value;
+        let tid = document.getElementById('tidInput').value;
+
+        deltakere.push(navn);
+        lopetider.push(tid);
+        
+        // Rens input-feltene etterpå
+        document.getElementById('navnInput').value = '';
+        document.getElementById('tidInput').value = '';
+    }
+    
+
+    function finnVinner() {
+            let vinnerIndex = 0;
+            let lavesteTid = lopetider[0];
+
+            for (let i = 1; i < lopetider.length; i++) {
+                if (lopetider[i] < lavesteTid) {
+                    lavesteTid = lopetider[i];
+                    vinnerIndex = i;
+                }
+            }
+
+            let resultatDiv = document.getElementById('resultat');
+            resultatDiv.innerHTML = 'Vinneren er: ' + deltakere[vinnerIndex] + ' med ' + lavesteTid + ' minutter.';
+        }
+
+    document.getElementById('visOversiktKnapp').addEventListener('click', visOversikt);
+    document.getElementById('registrerKnapp').addEventListener('click', leggTilDeltaker);
+    document.getElementById('finnVinnerKnapp').addEventListener('click', finnVinner);
+</script>
+</html>

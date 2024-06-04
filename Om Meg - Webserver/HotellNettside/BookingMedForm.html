@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotell booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #a9a9a9;
+            color: #333;
+        }
+        h1 {
+            color: #333;
+        }
+        h3 {
+            color: #0066cc;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        form {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="/prosjekter.html"><button>Tilbake</button></a>
+   <h1>Velkommen Til Vårt Hotell!</h1>
+   <img src="bellagio-las-vegas.jpg" alt="Bilde av vårt hotell" style="width: 100%; max-width: 500px;">
+   <h3>Prisliste</h3>
+   <ul>
+    <li>Standard: 1790,- per natt</li>
+    <li>Deluxe: 2890,- per natt</li>
+    <li>President-Suite: 12 390,- per natt</li>
+   </ul>
+
+    <h3>Fasiliteter ved hotellet</h3>
+    <ul>
+        <li>Gratis Wi-Fi</li>
+        <li>24-timers resepsjon</li>
+        <li>Stort basseng</li>
+        <li>SPA-senter</li>
+        <li>Nydelig Fontene</li>
+        <li>Perfekt Utsikt</li>
+    </ul>
+    <br>
+    <h3>Booking</h3>
+   <form id="skjema">
+    <label>Fra dato:</label><br>
+    <input id="inpDatoFra" type="date"><br>
+    <label>Til dato:</label><br>
+    <input id="inpDatoTil" type="date"><br>
+    <label>Velg romtype:</label> <br>
+    <img id="hotellBilde" style="width: 100%; max-width: 500px;" ><br>
+    <input type="radio" name="romtype" value="standard">Standard<br>
+    <input type="radio" name="romtype" value="deluxe">Deluxe<br>
+    <input type="radio" name="romtype" value="president">President-Suite<br>
+    <input type="submit" value="Beregn pris og book oppholdet">
+   </form> 
+   <p id="resultat"></p>
+
+   <script>
+    function beregnDager() {
+        // Hent datoene fra input-feltene
+        let datoFra = document.getElementById('inpDatoFra').value;
+        let datoTil = document.getElementById('inpDatoTil').value;
+
+        // Konverter strengene til datoobjekter
+        let datoFraObj = new Date(datoFra);
+        let datoTilObj = new Date(datoTil);
+
+        // Beregn forskjellen i millisekunder
+        let forskjellIMilliSekunder = datoTilObj - datoFraObj;
+        
+        // Konverter forskjellen til dager
+        let antallDager = forskjellIMilliSekunder / (1000 * 3600 * 24);
+
+        // Returner antall dager
+        return antallDager;
+    }
+
+    function oppdaterBilde(romtype) {
+        let bilde = document.getElementById('hotellBilde');
+        if (romtype === 'standard') {
+            bilde.src = 'standardHotelRoom.jpg';
+        } else if (romtype === 'deluxe') {
+            bilde.src = 'duluxHotelRoom.jpg';
+        } else if (romtype === 'president') {
+            bilde.src = 'presidentHotelRoom.jpg';
+        }
+    }
+
+    function book(e) {
+        e.preventDefault();  // Unngå at formen sender til en annen nettside
+
+        let antallDager = beregnDager();
+        let valgtRom = document.querySelector('input[name="romtype"]:checked').value;
+        let prisPerNatt;
+
+        if (valgtRom === 'standard') {
+            prisPerNatt = 1790;
+        } else if (valgtRom === 'deluxe') {
+            prisPerNatt = 2890;
+        } else if (valgtRom === 'president') {
+            prisPerNatt = 12390;
+        }
+
+        let totalPris = antallDager * prisPerNatt;
+        let bekreftelse = `Takk for din bestilling! Du har valgt et ${valgtRom} rom for ${antallDager} netter. Totalprisen blir ${totalPris},- NOK`;
+
+        document.getElementById('resultat').textContent = bekreftelse;
+
+        oppdaterBilde(valgtRom);
+    }
+    
+    skjema.onsubmit = book;
+
+   </script>
+</body>
+</html>
