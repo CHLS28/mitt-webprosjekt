@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+<main>
+    <h2>Kontakt Oss</h2>
+    
+    <form action="/Kvitering" method="POST">
+            <label for="inpFNavn">Fornavn:</label>
+            <input type="text" id="inpFNavn" name="fornavn" required>
+            <br><br>
+            <label for="inpENavn">Etternavn:</label>
+            <input type="text" id="inpENavn" name="etternavn" required>
+            <br><br>
+            <label for="inpEmail">Email:</label>
+            <input type="email" id="inpEmail" name="email" required>
+            <br><br>
+            <label for="inpMelding">Melding:</label>
+            <input type="text" id="inpMelding" name="melding">
+            <br><br>
+            <button type="submit">Send</button>
+        </div>
+    </form>
+
+    
+</main>
+
+<%- include('partials/footer') %>
