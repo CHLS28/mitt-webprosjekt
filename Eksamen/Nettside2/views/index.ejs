@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+<h2>Velkommen til BetaTech Solutions sin tilbakemelding side</h2>
+
+<h2>Skriv din tilbakemelding her.</h2>
+<form action="/submit" method="post">
+    <label for="inpTrivsel">Hvordan trives du på jobb?</label>
+    <select id="inpTrivsel" name="trivsel" required>
+        <option value="">Velg hvordan du trives...</option>
+        <option value="fantastisk">Fantastisk</option>
+        <option value="veldigBra">Veldig Bra</option>
+        <option value="bra">Bra</option>
+        <option value="passe">Passe</option>
+        <option value="littDårlig">Litt Dårlig</option>
+        <option value="veldigDårlig">Veldig Dårlig</option>
+        <option value="forferdelig">Forferdelig</option>
+    </select>
+    <br><br>
+    <label for="inpMelding">Melding:</label>
+    <textarea name="melding" id="inpMelding"></textarea>
+    <br>
+    <label for="inpAvdeling">Avdeling</label>
+    <select id="inpAvdeling" name="avdeling">
+        <option value="">Velg avdeling...</option>
+        <option value="softwareutvikling">Softwareutvikling</option>
+        <option value="nettverksadministrasjon">Nettverksadministrasjon</option>
+        <option value="teknsikSupport">Teknisk support</option>
+        <option value="kantinetjeneste">Kantinetjeneste</option>
+        <option value="datasenter">Datasenter</option>
+    </select>
+    <input type="submit" value="Send">
+</form>
+<%- include('partials/footer') %>

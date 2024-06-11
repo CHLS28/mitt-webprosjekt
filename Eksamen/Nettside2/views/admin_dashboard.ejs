@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs') %>
+<h2>Admin Dashboard</h2>
+<h3>Tilbakemelding Statistikk per Avdeling:</h3>
+<% for (let avdeling in statistics) { %>
+    <h4><%= avdeling %></h4>
+    <ul>
+        <% for (let trivsel in statistics[avdeling]) { %>
+            <li><%= trivsel %>: <%= statistics[avdeling][trivsel] %></li>
+        <% } %>
+    </ul>
+<% } %>
+<br><br><br><br><br>
+<%- include('partials/footer.ejs') %>
