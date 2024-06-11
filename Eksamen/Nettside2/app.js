@@ -45,6 +45,7 @@ app.post("/submit", async (req, res) => {
         const { trivsel, melding, avdeling } = req.body;
         const data = { trivsel, melding, avdeling };
         await skrivTilFil(data);
+<<<<<<< HEAD
         res.render('submit', { message: "Tilbakemelding sendt inn med hell!" });
     } catch (error) {
         console.error("Failed to process form submission:", error);
@@ -53,6 +54,15 @@ app.post("/submit", async (req, res) => {
 });
 
 
+=======
+        res.send("Tilbakemelding sendt inn med hell!");
+    } catch (error) {
+        console.error("Failed to process form submission:", error);
+        res.status(500).send("En feil oppstod ved behandling av forespørselen din.");
+    }
+});
+
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
 // Ruter for pålogging
 app.get('/login', (req, res) => {
     res.render('admin');
@@ -81,11 +91,19 @@ async function lesFraFil() {
             if (!statistics[avdeling]) {
                 statistics[avdeling] = {
                     'fantastisk': 0,
+<<<<<<< HEAD
                     'veldig bra': 0,
                     'bra': 0,
                     'passe': 0,
                     'litt dårlig': 0,
                     'veldig dårlig': 0,
+=======
+                    'veldigBra': 0,
+                    'bra': 0,
+                    'passe': 0,
+                    'littDårlig': 0,
+                    'veldigDårlig': 0,
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
                     'forferdelig': 0
                 };
             }
@@ -116,4 +134,8 @@ app.use((req, res, next) => {
 // Start server
 app.listen(port, () => {
     console.log(`Serveren kjører på http://localhost:${port}`);
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a

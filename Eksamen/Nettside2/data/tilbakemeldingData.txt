@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 fantastisk,Hei,softwareutvikling
 veldigBra,Jeg trives veldig bra!,
 veldigBra,Jeg trives veldig bra!,
@@ -7,3 +8,10 @@ veldigBra,Jeg trives veldig bra!,
 veldigBra,,
 veldigBra,,
 veldigBra,,
+=======
+fantastisk,Veldig bra,softwareutvikling
+fantastisk,Veldig bra,nettverksadministrasjon
+fantastisk,Veldig bra,teknsikSupport
+passe,Veldig bra,kantinetjeneste
+forferdelig,Veldig bra,datasenter
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a

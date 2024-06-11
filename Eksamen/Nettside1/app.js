@@ -1,5 +1,8 @@
-import express from 'express';
+import express from "express";
 import nodemailer from "nodemailer";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const email = process.env.MY_EMAIL;
 const appPass = process.env.APP_PASS;
@@ -28,35 +31,50 @@ app.get('/kontakt-oss', (req, res) => {
     res.render('kontaktOss');
 });
 
-app.post('/kvitering', async (req, res) => {
-    const { fornavn, etternavn, email, melding } = req.body;
-
-    // Send email using Nodemailer
-    try {
-        let transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: email,
-                pass: appPass
-            }
-        });
-
-        let mailOptions = {
-            from: email,
-            to: email,
-            subject: 'Kvittering fra BetaTech Solutions',
-            text: `Hei, ${fornavn} ${etternavn}. Vi har mottatt meldingen din! Det sendes også en kopi av denne kvitteringen til denne epost adressen: ${email}.`
-        };
-
-        await transporter.sendMail(mailOptions);
-        console.log('E-post sendt!');
-    } catch (error) {
-        console.log('Feil ved sending av e-post:', error);
-    }
-
-    // Render the receipt page
-    res.render('kvitering', { fornavn, etternavn, email });
+app.post("/submit", (req, res) => {
+    console.log("Email Sendt!");
+    console.log(req.body);
+    let data = {
+        fornavn: req.body.fornavn,
+        etternavn: req.body.etternavn,
+        epost: req.body.email,
+        melding: req.body.melding
+    };
+    sendEpost(data);
+    res.render("formSubmit.ejs", data);
 });
+
+function sendEpost(data){
+    let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: email,
+            pass: appPass
+        }
+    });
+
+    let emailContent = `<h1>Hei, ${data.fornavn} ${data.etternavn}.</h1> 
+    <p>Vi har mottatt meldingen din fra denne epost adressen: ${data.epost}. Her er en kopi av meldingen du sendte:</p>
+    <p>${data.melding}</p>
+    <br>
+    <p>Med vennlig hilsen</p>
+    <p><strong>BetaTech Solutions</strong></p>
+    <img width="200px" src="https://picsum.photos/400?random=6" alt="Bilde">`;
+
+    let mailOptions = {
+        from: email,
+        to: data.epost,
+        subject: "epost fra skjema, spam",
+        html: emailContent  // html hvis det er html
+    };
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error){
+            console.log(error);
+        }else{
+            console.log("email sent" + info.response);
+        }
+    });
+}
 
 // Start server
 app.listen(port, () => {
