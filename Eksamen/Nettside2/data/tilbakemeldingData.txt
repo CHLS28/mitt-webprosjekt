@@ -1,6 +1,0 @@
-
-fantastisk,Veldig bra,softwareutvikling
-fantastisk,Veldig bra,nettverksadministrasjon
-fantastisk,Veldig bra,teknsikSupport
-passe,Veldig bra,kantinetjeneste
-forferdelig,Veldig bra,datasenter

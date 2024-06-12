@@ -1,129 +1,123 @@
-// Importer nødvendige moduler
-import express from "express"; // Importer Express rammeverket
-import dotenv from "dotenv"; // Importer dotenv for lasting av miljøvariabler fra .env-filen
-import fs from 'fs/promises'; // Importer fs-modulen for asynkrone filbehandlingsoperasjoner
-import session from 'express-session'; // Importer express-session-modulen for sessions
+import express from "express";
+import dotenv from "dotenv";
+import fs from 'fs/promises'; 
+import session from 'express-session'; 
 
-// Last inn miljøvariabler fra .env-filen
+
 dotenv.config();
 
-// Initialiser en Express-applikasjon
-const app = express(); // Opprett en Express-app-forekomst
-const port = 3000;  // Definer porten applikasjonen skal kjøre på
+const app = express();
+const port = 3000;
 
-// Hent admin-brukernavn og passord fra miljøvariabler
-const adminUser = process.env.ADMIN_USER; // Hent admin-brukernavnet fra miljøvariablene
-const adminPass = process.env.ADMIN_PASS; // Hent admin-passordet fra miljøvariablene
+const adminUser = process.env.ADMIN_USER;
+const adminPass = process.env.ADMIN_PASS; 
 
-// Sett EJS som template engine
-app.set('view engine', 'ejs'); // Angi EJS som template engine for Express
+app.set('view engine', 'ejs');
 
-// Angi mappen for statiske filer
-app.use(express.static('public')); // Angi mappen 'public' for statiske filer som bilder, CSS og JavaScript
+app.use(express.static('public'));
 
-// Middleware for å tolke URL-kodede forespørsler (som fra HTML-skjemaer)
-app.use(express.urlencoded({ extended: true })); // Tolker URL-kodede forespørsler og legger resultatene til req.body
+
+app.use(express.urlencoded({ extended: true })); 
 
 // Konfigurer sessions
 app.use(session({
-    secret: 'hemmelig', // Hemmelig streng for å signere sessions
-    resave: false, // Ikke lagre session hvis den ikke er endret
-    saveUninitialized: true // Lagre uinitialiserte sessions
+    secret: 'hemmelig',
+    resave: false,
+    saveUninitialized: true
 }));
 
-// Definer rute for rot (hjemmesiden)
+
 app.get('/', (req, res) => {
-    res.render('index'); // Render index.ejs
+    res.render('index'); // 
 });
 
-// Funksjon for å skrive data til fil
+
 async function skrivTilFil(data) {
-    let dataPath = "./data/tilbakemeldingData.txt"; // Sti til datafilen
-    let nyLinje = `\n${data.trivsel},${data.melding},${data.avdeling}`; // Data som skal skrives til filen
+    let dataPath = "./data/tilbakemeldingData.txt";
+    let nyLinje = `\n${data.trivsel},${data.melding},${data.avdeling}`;
     try {
-        await fs.appendFile(dataPath, nyLinje); // Legg til data i filen
-        console.log("Data added successfully!"); // Logg vellykket tillegg av data
+        await fs.appendFile(dataPath, nyLinje);
+        console.log("Data added successfully!");
     } catch (err) {
-        console.error("Failed to append data to file:", err); // Logg feil ved mislykket skriving
+        console.error("Failed to append data to file:", err);
     }
 }
 
-// Håndter POST-forespørsler til /submit
+
 app.post("/submit", async (req, res) => {
     try {
-        const { trivsel, melding, avdeling } = req.body; // Destrukturer data fra forespørselen
-        const data = { trivsel, melding, avdeling }; // Lag et dataobjekt
-        await skrivTilFil(data); // Skriv data til fil
-        res.render('submit', { message: "Tilbakemelding sendt inn!" }); // Render submit.ejs med suksessmelding
+        const { trivsel, melding, avdeling } = req.body;
+        const data = { trivsel, melding, avdeling };
+        await skrivTilFil(data);
+        res.render('submit', { message: "Tilbakemelding sendt inn!" });
     } catch (error) {
-        console.error("Failed to process form submission:", error); // Logg feil ved mislykket behandling
-        res.status(500).render('submit', { message: "En feil oppstod ved behandling av forespørselen din." }); // Render submit.ejs med feilmelding
+        console.error("Failed to process form submission:", error);
+        res.status(500).render('submit', { message: "En feil oppstod ved behandling av forespørselen din." });
     }
 });
 
-// Rute for påloggingsside
+
 app.get('/login', (req, res) => {
-    res.render('admin'); // Render admin.ejs
+    res.render('admin');
 });
 
-// Håndter POST-forespørsler til /login
+
 app.post("/login", (req, res) => {
-    const { brukernavn, passord } = req.body; // Hent brukernavn og passord fra forespørselen
-    if (brukernavn === adminUser && passord === adminPass) { // Sjekk legitimasjon
-        req.session.authenticated = true; // Sett session som autentisert
-        res.redirect('/admin'); // Omdiriger til adminside
+    const { brukernavn, passord } = req.body;
+    if (brukernavn === adminUser && passord === adminPass) { 
+        req.session.authenticated = true; 
+        res.redirect('/admin'); 
     } else {
-        res.render('admin', { error: "Feil brukernavn eller passord." }); // Render admin.ejs med feilmelding
+        res.render('admin', { error: "Feil brukernavn eller passord." });
     }
 });
 
-// Funksjon for å lese data fra fil og generere statistikk
+
 async function lesFraFil() {
     try {
-        const data = await fs.readFile("./data/tilbakemeldingData.txt", "utf8"); // Les filen
-        const lines = data.trim().split("\n"); // Splitt dataen på linjeskift
+        const data = await fs.readFile("./data/tilbakemeldingData.txt", "utf8");
+        const lines = data.trim().split("\n");
         const statistics = {};
 
         lines.forEach(line => {
-            const [trivsel, melding, avdeling] = line.split(","); // Splitt hver linje på komma
+            const [trivsel, melding, avdeling] = line.split(",");
             if (!statistics[avdeling]) {
-                // Initialiser statistikk for avdeling hvis den ikke finnes
-                statistics[avdeling] = {
-                    'fantastisk': 0,
-                    'veldig bra': 0,
-                    'bra': 0,
-                    'passe': 0,
-                    'litt dårlig': 0,
-                    'veldig dårlig': 0,
-                    'forferdelig': 0
-                };
+                    statistics[avdeling] = {
+                        'fantastisk': 0,
+                        'veldig bra': 0,
+                        'bra': 0,
+                        'passe': 0,
+                        'litt dårlig': 0,
+                        'veldig dårlig': 0,
+                        'forferdelig': 0
+                    };
             }
-            statistics[avdeling][trivsel] = (statistics[avdeling][trivsel] || 0) + 1; // Oppdater tellingen for trivsel i avdelingen
+            statistics[avdeling][trivsel] = (statistics[avdeling][trivsel] || 0) + 1;
         });
 
-        return statistics; // Returner generert statistikk
+        return statistics;
     } catch (err) {
-        console.error("Failed to read data from file:", err); // Logg feil ved mislykket lesing
+        console.error("Failed to read data from file:", err);
         return {};
     }
 }
 
-// Rute for admin-side
+
 app.get('/admin', async (req, res) => {
-    const statistics = await lesFraFil(); // Hent statistikk fra fil
-    res.render('admin_dashboard', { statistics }); // Render admin_dashboard.ejs med statistikk
+    const statistics = await lesFraFil();
+    res.render('admin_dashboard', { statistics });
 });
 
 // Middleware for å sjekke autentisering
 app.use((req, res, next) => {
     if (req.url.startsWith('/admin_dashboard') && !req.session.authenticated) {
-        return res.redirect('/login'); // Omdiriger til login-side hvis ikke autentisert
+        return res.redirect('/login');
     }
     next(); // Fortsett til neste middleware eller rutehandler
 });
 
-// Start server
+
 app.listen(port, () => {
-    console.log(`Serveren kjører på http://localhost:${port}`); // Logg melding når serveren er startet
+    console.log(`Serveren kjører på http://localhost:${port}`);
 });
 ``

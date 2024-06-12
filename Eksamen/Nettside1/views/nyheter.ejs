@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+
+<h1>Nyheter</h1>
+    <ul>
+        <% nyheter.forEach(nyhet => { %>
+            <li>
+                <h2><%= nyhet.tittel %></h2>
+                <p>Dato: <%= nyhet.dato %></p>
+                <p>Forfatter: <%= nyhet.forfatter %></p>
+                <p><%= nyhet.innhold %></p>
+                <p><%= nyhet.dag %></p>
+            </li>
+        <% }); %>
+    </ul>
+
+<%- include('partials/footer') %>
