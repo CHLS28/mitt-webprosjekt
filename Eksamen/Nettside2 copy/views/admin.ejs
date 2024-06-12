@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+<main>
+    <h2>Admin Login</h2>
+    
+    <% if (typeof error !== 'undefined') { %>
+        <p><%= error %></p>
+    <% } %>
+    
+    <form action="/login" method="POST">
+        <div class="login-section">
+            <label for="inpNavn">Brukernavn:</label>
+            <input type="text" id="inpNavn" name="brukernavn" required>
+        </div>
+        
+        <div class="login-section">
+            <label for="inpPassord">Password:</label>
+            <input type="password" id="inpPassord" name="passord" required>
+        </div>
+        
+        <div class="login-section">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</main>
+
+<%- include('partials/footer.ejs') %>
