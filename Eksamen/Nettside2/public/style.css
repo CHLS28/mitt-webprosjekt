@@ -3,28 +3,52 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     align-items: center;
+<<<<<<< HEAD
+=======
+=======
+    text-align: center;
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
 }
 
 header {
     background-color: #333;
     color: white;
     padding: 1rem;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
     width: 100%;
     text-align: center;
 }
 header a {
+<<<<<<< HEAD
     color: inherit; 
     text-decoration: none; 
+=======
+    color: inherit; /* arver fargen fra foreldrelementet */
+    text-decoration: none; /* fjerner understreking */
+=======
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
 }
 
 header h1 {
     margin: 0;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
 main {
     flex: 1;
@@ -62,6 +86,63 @@ ul li {
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     border-radius: 4px;
+=======
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
+
+main {
+    flex: 1;
+    padding: 1rem;
+<<<<<<< HEAD
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+ul li {
+    background-color: #f1f1f1;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+=======
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
 }
 
 footer {
@@ -69,6 +150,98 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    height: 50px;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"],
+button[type="submit"] {
+    background-color: gray;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: gray;
+}
+
+.error {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.login-section {
+    margin-bottom: 20px;
+}
+
+/* Spesifikk styling for submit-melding */
+.message {
+    text-align: center;
+    padding: 20px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: gray;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: darkgray;
+}
+
+
+
+=======
+    bottom: 0;
+    position: fixed;
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
     width: 100%;
     position: sticky;
     bottom: 0;
@@ -133,6 +306,7 @@ button[type="submit"]:hover {
     background-color: #dff0d8;
     border: 1px solid #d6e9c6;
     border-radius: 4px;
+<<<<<<< HEAD
     margin: 20px auto;
     max-width: 600px;
 }
@@ -151,3 +325,7 @@ button[type="submit"]:hover {
 .back-button:hover {
     background-color: darkgray;
 }
+=======
+}
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35

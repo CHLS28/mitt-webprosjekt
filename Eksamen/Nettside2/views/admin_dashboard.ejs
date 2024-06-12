@@ -1,4 +1,8 @@
 <%- include('partials/header.ejs') %>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
 <main>
     <h2>Admin Dashboard</h2>
     <h3>Tilbakemelding Statistikk per Avdeling:</h3>
@@ -13,4 +17,21 @@
     <% } %>
 
 </main>
+<<<<<<< HEAD
 <%- include('partials/footer.ejs') %>
+=======
+=======
+<h2>Admin Dashboard</h2>
+<h3>Tilbakemelding Statistikk per Avdeling:</h3>
+<% for (let avdeling in statistics) { %>
+    <h4><%= avdeling %></h4>
+    <ul>
+        <% for (let trivsel in statistics[avdeling]) { %>
+            <li><%= trivsel %>: <%= statistics[avdeling][trivsel] %></li>
+        <% } %>
+    </ul>
+<% } %>
+<br><br><br><br><br>
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
+<%- include('partials/footer.ejs') %>
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35

@@ -49,7 +49,11 @@ app.post("/submit", async (req, res) => {
         const { trivsel, melding, avdeling } = req.body;
         const data = { trivsel, melding, avdeling };
         await skrivTilFil(data);
+<<<<<<< HEAD
         res.render('submit', { message: "Tilbakemelding sendt inn!" });
+=======
+<<<<<<< HEAD
+        res.render('submit', { message: "Tilbakemelding sendt inn med hell!" });
     } catch (error) {
         console.error("Failed to process form submission:", error);
         res.status(500).render('submit', { message: "En feil oppstod ved behandling av forespørselen din." });
@@ -57,6 +61,21 @@ app.post("/submit", async (req, res) => {
 });
 
 
+=======
+        res.send("Tilbakemelding sendt inn med hell!");
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
+    } catch (error) {
+        console.error("Failed to process form submission:", error);
+        res.status(500).render('submit', { message: "En feil oppstod ved behandling av forespørselen din." });
+    }
+});
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
+// Ruter for pålogging
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
 app.get('/login', (req, res) => {
     res.render('admin');
 });
@@ -82,6 +101,7 @@ async function lesFraFil() {
         lines.forEach(line => {
             const [trivsel, melding, avdeling] = line.split(",");
             if (!statistics[avdeling]) {
+<<<<<<< HEAD
                     statistics[avdeling] = {
                         'fantastisk': 0,
                         'veldig bra': 0,
@@ -91,6 +111,25 @@ async function lesFraFil() {
                         'veldig dårlig': 0,
                         'forferdelig': 0
                     };
+=======
+                statistics[avdeling] = {
+                    'fantastisk': 0,
+<<<<<<< HEAD
+                    'veldig bra': 0,
+                    'bra': 0,
+                    'passe': 0,
+                    'litt dårlig': 0,
+                    'veldig dårlig': 0,
+=======
+                    'veldigBra': 0,
+                    'bra': 0,
+                    'passe': 0,
+                    'littDårlig': 0,
+                    'veldigDårlig': 0,
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
+                    'forferdelig': 0
+                };
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
             }
             statistics[avdeling][trivsel] = (statistics[avdeling][trivsel] || 0) + 1;
         });
@@ -119,5 +158,12 @@ app.use((req, res, next) => {
 
 app.listen(port, () => {
     console.log(`Serveren kjører på http://localhost:${port}`);
+<<<<<<< HEAD
 });
+<<<<<<< HEAD
 ``
+=======
+=======
+});
+>>>>>>> 059fb53c6c364ba04c5dacfa324c4b3946e4115a
+>>>>>>> e3c10331537edb5ef8f6e38f69dce03365359a35
